@@ -9,9 +9,15 @@
       "image": "brain-tumour.png",
       "gradient": "linear-gradient(45deg, #667eea 0%, #764ba2 100%)",
       "emoji": "🧠",
-      "tags": ["Python", "Machine Learning", "OpenCV", "TensorFlow", "Medical Imaging"],
-      "github_url": "https://github.com/wolflergf/brain-tumour",
-      "demo_url": "/projects/brain-tumour-classifier",
+      "tags": [
+        "Python",
+        "Machine Learning",
+        "OpenCV",
+        "TensorFlow",
+        "Medical Imaging"
+      ],
+      "github_url": "https://github.com/wolflergf/BrainTumourApp",
+      "demo_url": "https://braintumourappgit.streamlit.app",
       "featured": true,
       "date": "2025-01-15",
       "technologies": ["Python", "TensorFlow", "OpenCV", "Streamlit", "NumPy"]
@@ -73,7 +79,13 @@
       "image": "automation-bot.png",
       "gradient": "linear-gradient(45deg, #a8edea 0%, #fed6e3 100%)",
       "emoji": "🤖",
-      "tags": ["Python", "Selenium", "BeautifulSoup", "Automation", "Web Scraping"],
+      "tags": [
+        "Python",
+        "Selenium",
+        "BeautifulSoup",
+        "Automation",
+        "Web Scraping"
+      ],
       "github_url": "https://github.com/wolflergf/automation-bot",
       "demo_url": null,
       "featured": false,
@@ -94,7 +106,13 @@
       "demo_url": null,
       "featured": false,
       "date": "2024-10-05",
-      "technologies": ["Python", "Scikit-learn", "TensorFlow", "Pandas", "NumPy"]
+      "technologies": [
+        "Python",
+        "Scikit-learn",
+        "TensorFlow",
+        "Pandas",
+        "NumPy"
+      ]
     },
     {
       "id": "python-game",
@@ -130,4 +148,3 @@
     }
   ]
 }
-
