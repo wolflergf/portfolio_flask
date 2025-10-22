@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Blog Hero -->
+<section class="section" style="padding-top: calc(4rem + 80px);">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1>Blog</h1>
+            <p style="font-size: 1.2rem; color: var(--text-light);">Technical articles, experiences, and insights about technology, programming, and data science.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Posts -->
+{% if posts %}
+<section class="section section-alt">
+    <div class="container">
+        <div class="grid grid-2">
+            {% for post in posts %}
+            <div class="card">
+                <h3 class="card-title">{{ post.title }}</h3>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">
+                    📅 {{ post.date.strftime('%B %d, %Y') }}
+                </p>
+                <p class="card-description">{{ post.excerpt }}</p>
+                {% if post.tags %}
+                <div class="card-tags">
+                    {% for tag in post.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div style="margin-top: 1rem;">
+                    <a href="{{ url_for('blog_post', slug=post.slug) }}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="section section-alt">
+    <div class="container" style="text-align: center;">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <h3 class="card-title">📝 Coming Soon</h3>
+            <p class="card-description">Blog posts are on the way! I'll be sharing insights about Python, Data Science, Machine Learning, and my journey in technology.</p>
+            <p style="margin-top: 1rem;">In the meantime, check out my projects or get in touch!</p>
+            <div style="margin-top: 1.5rem;">
+                <a href="{{ url_for('projects') }}" class="btn btn-primary" style="margin-right: 0.5rem;">View Projects</a>
+                <a href="{{ url_for('contact') }}" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Tags Cloud -->
+{% if all_tags %}
+<section class="section">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Topics</h2>
+        <div style="text-align: center;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
+                {% for tag in all_tags %}
+                <span class="tag" style="font-size: 1rem; padding: 0.5rem 1rem;">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Newsletter Signup (Optional) -->
+<section class="section section-alt">
+    <div class="container" style="text-align: center;">
+        <h2>Stay Updated</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Want to be notified when I publish new articles? Get in touch!</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-primary">Subscribe to Updates</a>
+    </div>
+</section>
+{% endblock %}
+

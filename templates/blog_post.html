@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - Blog - {{ site_name }}{% endblock %}
+
+{% block content %}
+<!-- Post Header -->
+<section class="section" style="padding-top: calc(4rem + 80px);">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <a href="{{ url_for('blog') }}" style="color: var(--secondary-color); text-decoration: none; display: inline-block; margin-bottom: 1rem;">
+                ← Back to Blog
+            </a>
+            <h1>{{ post.title }}</h1>
+            <p style="color: var(--text-light); font-size: 1rem; margin-bottom: 1.5rem;">
+                📅 {{ post.date.strftime('%B %d, %Y') }}
+            </p>
+            {% if post.tags %}
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
+                {% for tag in post.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Post Content -->
+<section class="section section-alt">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="card">
+                <div class="blog-content" style="line-height: 1.8; font-size: 1.05rem;">
+                    {{ post.content | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Posts -->
+{% if recent_posts %}
+<section class="section">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Recent Posts</h2>
+        <div class="grid grid-3">
+            {% for recent in recent_posts %}
+            <div class="card">
+                <h3 class="card-title">{{ recent.title }}</h3>
+                <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">
+                    📅 {{ recent.date.strftime('%B %d, %Y') }}
+                </p>
+                <p class="card-description">{{ recent.excerpt }}</p>
+                <div style="margin-top: 1rem;">
+                    <a href="{{ url_for('blog_post', slug=recent.slug) }}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section class="section section-alt">
+    <div class="container" style="text-align: center;">
+        <h2>Enjoyed this article?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Let's connect and discuss more about technology and innovation.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="{{ url_for('contact') }}" class="btn btn-primary">Get in Touch</a>
+            <a href="{{ url_for('blog') }}" class="btn btn-secondary">Read More Articles</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .blog-content h1, .blog-content h2, .blog-content h3 {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+    .blog-content p {
+        margin-bottom: 1rem;
+    }
+    .blog-content code {
+        background-color: var(--neutral-light);
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+    }
+    .blog-content pre {
+        background-color: var(--neutral-light);
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+    }
+    .blog-content pre code {
+        background-color: transparent;
+        padding: 0;
+    }
+    .blog-content ul, .blog-content ol {
+        margin-left: 2rem;
+        margin-bottom: 1rem;
+    }
+    .blog-content li {
+        margin-bottom: 0.5rem;
+    }
+    .blog-content blockquote {
+        border-left: 4px solid var(--secondary-color);
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+        color: var(--text-light);
+        font-style: italic;
+    }
+    .blog-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin: 1.5rem 0;
+    }
+    .blog-content table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+    }
+    .blog-content table th,
+    .blog-content table td {
+        border: 1px solid var(--neutral-light);
+        padding: 0.75rem;
+        text-align: left;
+    }
+    .blog-content table th {
+        background-color: var(--neutral-light);
+        font-weight: 600;
+    }
+</style>
+{% endblock %}
+

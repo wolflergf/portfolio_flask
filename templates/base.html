@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Dynamic meta tags -->
+    <meta name="description" content="{% block meta_description %}{{ site_name }} - {{ site_tagline }}{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}Python, Data Science, Computer Science, Developer, Portfolio, Machine Learning{% endblock %}">
+    <meta name="author" content="{{ site_name }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:title" content="{% block og_title %}{{ page_title }} - {{ site_name }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ site_tagline }}{% endblock %}">
+    <meta property="og:image" content="{{ url_for('static', filename='images/profile.png', _external=True) }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ request.url }}">
+    <meta property="twitter:title" content="{% block twitter_title %}{{ page_title }} - {{ site_name }}{% endblock %}">
+    <meta property="twitter:description" content="{% block twitter_description %}{{ site_tagline }}{% endblock %}">
+    <meta property="twitter:image" content="{{ url_for('static', filename='images/profile.png', _external=True) }}">
+
+    <title>{% block title %}{{ page_title }} - {{ site_name }}{% endblock %}</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <a href="{{ url_for('index') }}" style="color: inherit; text-decoration: none;">WolflerGF</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="{{ url_for('index') }}" class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">Home</a></li>
+                <li><a href="{{ url_for('about') }}" class="nav-link {% if request.endpoint == 'about' %}active{% endif %}">About</a></li>
+                <li><a href="{{ url_for('projects') }}" class="nav-link {% if request.endpoint in ['projects', 'project_detail'] %}active{% endif %}">Projects</a></li>
+                <li><a href="{{ url_for('blog') }}" class="nav-link {% if request.endpoint in ['blog', 'blog_post'] %}active{% endif %}">Blog</a></li>
+                <li><a href="{{ url_for('contact') }}" class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages" style="position: fixed; top: 100px; right: 20px; z-index: 10000; max-width: 400px;">
+                {% for category, message in messages %}
+                    <div class="flash-message flash-{{ category }}" style="background: {% if category == 'success' %}#1ABC9C{% elif category == 'error' %}#E74C3C{% else %}#3498DB{% endif %}; color: white; padding: 1rem 1.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); margin-bottom: 10px; animation: slideInRight 0.3s ease;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span>{{ message }}</span>
+                            <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; margin-left: 1rem; padding: 0; line-height: 1;">&times;</button>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <style>
+                @keyframes slideInRight {
+                    from {
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+            </style>
+            <script>
+                // Auto-remove flash messages after 5 seconds
+                setTimeout(() => {
+                    document.querySelectorAll('.flash-message').forEach(msg => {
+                        msg.style.transition = 'opacity 0.3s ease';
+                        msg.style.opacity = '0';
+                        setTimeout(() => msg.remove(), 300);
+                    });
+                }, 5000);
+            </script>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    {% block content %}{% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="mailto:wolfler@wolflergf.com" class="social-link" title="Email">📧</a>
+                <a href="https://linkedin.com/in/wolflergf" class="social-link" title="LinkedIn" target="_blank" rel="noopener">💼</a>
+                <a href="https://github.com/wolflergf" class="social-link" title="GitHub" target="_blank" rel="noopener">🐙</a>
+                <a href="https://twitter.com/wolflergf" class="social-link" title="Twitter" target="_blank" rel="noopener">🐦</a>
+            </div>
+            <p>&copy; {{ current_year }} {{ site_name }}. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,58 @@
+{
+  "education": [
+    {
+      "title": "Computer Science",
+      "emoji": "🎓",
+      "status": "Undergraduate studies in progress",
+      "description": "Studying the fundamentals of computing, algorithms, data structures, software engineering, and emerging technologies. Focusing on software development and practical applications of technology.",
+      "tags": ["Algorithms", "Data Structures", "Software Engineering"]
+    },
+    {
+      "title": "Data Science Bootcamp",
+      "emoji": "📊",
+      "status": "Completed",
+      "description": "Intensive Data Science bootcamp covering data analysis, machine learning, data visualisation, and essential tools like Python, Pandas, NumPy, Scikit-learn, and Matplotlib.",
+      "tags": ["Python", "Machine Learning", "Pandas", "Scikit-learn"]
+    },
+    {
+      "title": "Continuous Development",
+      "emoji": "💻",
+      "status": "Ongoing",
+      "description": "Always learning new technologies and improving skills through online courses, personal projects, and participation in developer communities.",
+      "tags": ["Continuous Learning", "Personal Projects", "Community"]
+    }
+  ],
+  "certifications": [
+    {
+      "title": "PCEP™ Certification",
+      "emoji": "🐍",
+      "date": "June 2025",
+      "id": "QEQ3.419B.BhDK",
+      "description": "PCEP™ – Certified Entry-Level Python Programmer by the Python Institute. Certification validating fundamental knowledge in Python programming, including syntax, semantics, and standard libraries.",
+      "tags": ["Python", "Official Certification", "Python Institute"]
+    }
+  ],
+  "objectives": [
+    {
+      "title": "Immediate Goal",
+      "emoji": "🎯",
+      "description": "I am seeking an internship or junior position in Python development or Data Science to apply my knowledge and gain practical experience in the job market."
+    },
+    {
+      "title": "Future Vision",
+      "emoji": "🚀",
+      "description": "I intend to specialise in Machine Learning and Artificial Intelligence, contributing to innovative projects that positively impact society through technology."
+    },
+    {
+      "title": "Continuous Learning",
+      "emoji": "📚",
+      "description": "Committed to constant learning, always seeking new technologies, methodologies, and best practices to stay updated in the market."
+    },
+    {
+      "title": "Collaboration",
+      "emoji": "🤝",
+      "description": "Interested in working in multidisciplinary teams, contributing creative solutions, and learning from experienced professionals."
+    }
+  ]
+}
+

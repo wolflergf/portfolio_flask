@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} - {{ site_name }}{% endblock %}
+
+{% block content %}
+<!-- Project Header -->
+<section class="section" style="padding-top: calc(4rem + 80px);">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">{{ project.emoji }}</div>
+            <h1>{{ project.title }}</h1>
+            <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 1rem;">{{ project.description }}</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                {% for tag in project.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                {% if project.github_url %}
+                <a href="{{ project.github_url }}" class="btn btn-primary" target="_blank" rel="noopener">View on GitHub</a>
+                {% endif %}
+                {% if project.demo_url and project.demo_url != url_for('project_detail', slug=project.slug) %}
+                <a href="{{ project.demo_url }}" class="btn btn-secondary" target="_blank" rel="noopener">Live Demo</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Image/Preview -->
+<section class="section section-alt">
+    <div class="container">
+        <div style="background: {{ project.gradient }}; height: 400px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 8rem;">
+            {{ project.emoji }}
+        </div>
+    </div>
+</section>
+
+<!-- Project Details -->
+<section class="section">
+    <div class="container">
+        <div class="grid grid-2" style="align-items: start; gap: 3rem;">
+            <div>
+                <h2>About This Project</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8;">{{ project.long_description }}</p>
+                
+                {% if project.date %}
+                <p style="margin-top: 2rem;"><strong>Date:</strong> {{ project.date }}</p>
+                {% endif %}
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">Technologies Used</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    {% for tech in project.technologies %}
+                    <span class="tag">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                
+                <h3 class="card-title" style="margin-top: 2rem;">Project Tags</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                    {% for tag in project.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    {% if project.github_url %}
+                    <a href="{{ project.github_url }}" class="btn btn-primary" style="width: 100%; margin-bottom: 0.5rem;" target="_blank" rel="noopener">View Source Code</a>
+                    {% endif %}
+                    {% if project.demo_url and project.demo_url != url_for('project_detail', slug=project.slug) %}
+                    <a href="{{ project.demo_url }}" class="btn btn-secondary" style="width: 100%;" target="_blank" rel="noopener">Try Live Demo</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Projects -->
+{% if related_projects %}
+<section class="section section-alt">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Related Projects</h2>
+        <div class="grid grid-3">
+            {% for related in related_projects %}
+            <div class="card">
+                <div class="card-image" style="background: {{ related.gradient }}; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">{{ related.emoji }}</div>
+                <h3 class="card-title">{{ related.title }}</h3>
+                <p class="card-description">{{ related.description }}</p>
+                <div class="card-tags">
+                    {% for tag in related.tags[:3] %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <div class="card-actions">
+                    <a href="{{ url_for('project_detail', slug=related.slug) }}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section class="section">
+    <div class="container" style="text-align: center;">
+        <h2>Interested in this project?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Let's discuss how we can collaborate or explore similar solutions.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center;">
+            <a href="{{ url_for('contact') }}" class="btn btn-primary">Get in Touch</a>
+            <a href="{{ url_for('projects') }}" class="btn btn-secondary">View All Projects</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

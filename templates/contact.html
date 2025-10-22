@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Contact Hero -->
+<section class="section" style="padding-top: calc(4rem + 80px);">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1>Get in Touch</h1>
+            <p style="font-size: 1.2rem; color: var(--text-light);">Have a question, project idea, or just want to connect? I'd love to hear from you!</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form and Info -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="grid grid-2" style="align-items: start; gap: 3rem;">
+            <!-- Contact Form -->
+            <div class="card">
+                <h2 style="margin-bottom: 1.5rem;">Send a Message</h2>
+                <form method="POST" action="{{ url_for('contact') }}" id="contact-form">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name *</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email *</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject *</label>
+                        <select id="subject" name="subject" class="form-input" required>
+                            <option value="">Select a subject</option>
+                            <option value="Job Opportunity">Job Opportunity</option>
+                            <option value="Project Collaboration">Project Collaboration</option>
+                            <option value="Freelance Work">Freelance Work</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message *</label>
+                        <textarea id="message" name="message" class="form-textarea" rows="6" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+            
+            <!-- Contact Information -->
+            <div>
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3 class="card-title">📧 Email</h3>
+                    <p class="card-description">
+                        <a href="mailto:wolfler@wolflergf.com" style="color: var(--secondary-color);">wolfler@wolflergf.com</a>
+                    </p>
+                </div>
+                
+                <div class="card" style="margin-bottom: 2rem;">
+                    <h3 class="card-title">🌐 Social Media</h3>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="https://linkedin.com/in/wolflergf" target="_blank" rel="noopener" style="color: var(--secondary-color);">
+                            💼 LinkedIn
+                        </a>
+                        <a href="https://github.com/wolflergf" target="_blank" rel="noopener" style="color: var(--secondary-color);">
+                            🐙 GitHub
+                        </a>
+                        <a href="https://twitter.com/wolflergf" target="_blank" rel="noopener" style="color: var(--secondary-color);">
+                            🐦 Twitter
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title">⏰ Response Time</h3>
+                    <p class="card-description">I typically respond to messages within 24-48 hours. Looking forward to connecting with you!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section">
+    <div class="container" style="text-align: center;">
+        <h2>Prefer to download my CV?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Get a comprehensive overview of my experience, skills, and education.</p>
+        <a href="{{ url_for('static', filename='downloads/WolflerGuzzoFerreira_CV.pdf') }}" class="btn btn-primary" target="_blank">Download CV</a>
+    </div>
+</section>
+
+<style>
+    select.form-input {
+        appearance: none;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 1em;
+        padding-right: 3rem;
+    }
+</style>
+{% endblock %}
+

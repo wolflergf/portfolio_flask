@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- About Hero -->
+<section class="section" style="padding-top: calc(4rem + 80px);">
+    <div class="container">
+        <div class="grid grid-2" style="align-items: center; gap: 3rem;">
+            <div>
+                <h1>About Me</h1>
+                <p style="font-size: 1.2rem; color: var(--text-dark);">Hello! I'm {{ site_name }}, a student passionate about technology and innovation, always seeking new challenges and opportunities for professional growth.</p>
+                <p>Currently studying Computer Science, I have dedicated myself to Data Science and Python development. My journey in technology began with curiosity and transformed into a true passion for solving complex problems through programming.</p>
+            </div>
+            <div style="text-align: center;">
+                <img src="{{ url_for('static', filename='images/profile.png') }}" alt="{{ site_name }}" style="width: 300px; height: 300px; border-radius: 50%; border: 5px solid var(--secondary-color);">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Education & Certifications</h2>
+        <div class="grid grid-2">
+            {% for item in education %}
+            <div class="card">
+                <h3 class="card-title">{{ item.emoji }} {{ item.title }}</h3>
+                <p class="card-description"><strong>{{ item.status }}</strong></p>
+                <p>{{ item.description }}</p>
+                <div class="card-tags">
+                    {% for tag in item.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+
+            {% for cert in certifications %}
+            <div class="card">
+                <h3 class="card-title">{{ cert.emoji }} {{ cert.title }}</h3>
+                <p class="card-description"><strong>{{ cert.date }}{% if cert.id %} - ID: {{ cert.id }}{% endif %}</strong></p>
+                <p>{{ cert.description }}</p>
+                <div class="card-tags">
+                    {% for tag in cert.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Skills -->
+<section class="section">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Technical Skills</h2>
+        <div class="grid grid-3">
+            {% for skill in skills %}
+            <div class="card">
+                <h3 class="card-title">{{ skill.emoji }} {{ skill.category }}</h3>
+                <p class="card-description">{{ skill.description }}</p>
+                <div class="card-tags">
+                    {% for tag in skill.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Objectives -->
+{% if objectives %}
+<section class="section section-alt">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Professional Objectives</h2>
+        <div class="grid grid-2">
+            {% for objective in objectives %}
+            <div class="card">
+                <h3 class="card-title">{{ objective.emoji }} {{ objective.title }}</h3>
+                <p class="card-description">{{ objective.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section class="section">
+    <div class="container" style="text-align: center;">
+        <h2>Interested in learning more?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Download my full CV or get in touch to discuss opportunities.</p>
+        <div class="btn-group">
+            <a href="{{ url_for('static', filename='downloads/WolflerGuzzoFerreira_CV.pdf') }}" class="btn btn-primary" target="_blank">Download CV</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-secondary">Get in Touch</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

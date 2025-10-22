@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Projects Hero -->
+<section class="section" style="padding-top: calc(4rem + 80px);">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1>My Projects</h1>
+            <p style="font-size: 1.2rem; color: var(--text-light);">A collection of my work in Python, Data Science, and web development. Each project represents a challenge overcome and a new skill acquired.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects -->
+{% if featured_projects %}
+<section class="section section-alt">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Featured Projects</h2>
+        <div class="grid grid-2">
+            {% for project in featured_projects %}
+            <div class="card">
+                <div class="card-image" style="background: {{ project.gradient }}; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem;">{{ project.emoji }}</div>
+                <h3 class="card-title">{{ project.title }}</h3>
+                <p class="card-description">{{ project.long_description }}</p>
+                <div class="card-tags">
+                    {% for tag in project.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <div class="card-actions">
+                    <a href="{{ url_for('project_detail', slug=project.slug) }}" class="btn btn-primary">View Details</a>
+                    {% if project.github_url %}
+                    <a href="{{ project.github_url }}" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- All Projects -->
+{% if other_projects %}
+<section class="section">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">All Projects</h2>
+        <div class="grid grid-3">
+            {% for project in other_projects %}
+            <div class="card">
+                <div class="card-image" style="background: {{ project.gradient }}; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">{{ project.emoji }}</div>
+                <h3 class="card-title">{{ project.title }}</h3>
+                <p class="card-description">{{ project.description }}</p>
+                <div class="card-tags">
+                    {% for tag in project.tags[:4] %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <div class="card-actions">
+                    <a href="{{ url_for('project_detail', slug=project.slug) }}" class="btn btn-primary">Details</a>
+                    {% if project.github_url %}
+                    <a href="{{ project.github_url }}" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Technologies -->
+{% if all_tags %}
+<section class="section section-alt">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Technologies Used</h2>
+        <div style="text-align: center;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+                {% for tag in all_tags %}
+                <span class="tag" style="font-size: 1rem; padding: 0.5rem 1rem;">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section class="section">
+    <div class="container" style="text-align: center;">
+        <h2>Have a project in mind?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Let's discuss how I can help bring your ideas to life.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-primary">Get in Touch</a>
+    </div>
+</section>
+{% endblock %}
+

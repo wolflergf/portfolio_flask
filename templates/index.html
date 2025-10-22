@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <img src="{{ url_for('static', filename='images/profile.png') }}" alt="{{ site_name }}" class="profile-image">
+            <h1>{{ site_name }}</h1>
+            <p class="subtitle">{{ site_tagline }}</p>
+            <p>Passionate about technology, Python, and data analysis. Always seeking new challenges and opportunities for professional growth.</p>
+            <div class="btn-group">
+                <a href="{{ url_for('projects') }}" class="btn btn-primary">View Projects</a>
+                <a href="{{ url_for('static', filename='downloads/WolflerGuzzoFerreira_CV.pdf') }}" class="btn btn-secondary" target="_blank">Download CV</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Highlights Section -->
+<section class="section">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Highlights</h2>
+        <div class="grid grid-3">
+            <div class="card">
+                <h3 class="card-title">🐍 Python Certified</h3>
+                <p class="card-description">PCEP™ – Certified Entry-Level Python Programmer certified by the Python Institute in June 2025.</p>
+                <div class="card-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Certification</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">📊 Data Science</h3>
+                <p class="card-description">Comprehensive Data Science bootcamp focusing on data analysis, machine learning, and visualisation.</p>
+                <div class="card-tags">
+                    <span class="tag">Data Science</span>
+                    <span class="tag">Machine Learning</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3 class="card-title">🎓 Computer Science</h3>
+                <p class="card-description">Computer Science student focusing on software development and emerging technologies.</p>
+                <div class="card-tags">
+                    <span class="tag">Undergraduate</span>
+                    <span class="tag">Development</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects -->
+{% if featured_projects %}
+<section class="section section-alt">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 3rem;">Featured Projects</h2>
+        <div class="grid grid-2">
+            {% for project in featured_projects %}
+            <div class="card">
+                <div class="card-image" style="background: {{ project.gradient }}; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">{{ project.emoji }}</div>
+                <h3 class="card-title">{{ project.title }}</h3>
+                <p class="card-description">{{ project.description }}</p>
+                <div class="card-tags">
+                    {% for tag in project.tags[:3] %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <div class="card-actions">
+                    <a href="{{ url_for('project_detail', slug=project.slug) }}" class="btn btn-primary">View Details</a>
+                    {% if project.github_url %}
+                    <a href="{{ project.github_url }}" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section class="section">
+    <div class="container" style="text-align: center;">
+        <h2>Shall we work together?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">I am always open to new opportunities and interesting challenges.</p>
+        <a href="{{ url_for('contact') }}" class="btn btn-primary">Get in Touch</a>
+    </div>
+</section>
+{% endblock %}
+

@@ -1,0 +1,41 @@
+{
+  "skills": [
+    {
+      "category": "Python",
+      "emoji": "🐍",
+      "description": "Main language with experience in application development, data analysis, and automation.",
+      "tags": ["Python", "PyDub", "Automation"]
+    },
+    {
+      "category": "Data Science",
+      "emoji": "📊",
+      "description": "Data analysis, machine learning, visualisation, and processing large volumes of data.",
+      "tags": ["Pandas", "NumPy", "Matplotlib", "Scikit-learn"]
+    },
+    {
+      "category": "Web Development",
+      "emoji": "🌐",
+      "description": "Creation of interactive and responsive web pages using modern technologies.",
+      "tags": ["HTML5", "CSS3", "JavaScript", "Flask"]
+    },
+    {
+      "category": "Machine Learning",
+      "emoji": "🧠",
+      "description": "Development of predictive models and classification systems to solve real-world problems.",
+      "tags": ["Classification", "Regression", "OpenCV", "TensorFlow"]
+    },
+    {
+      "category": "Tools",
+      "emoji": "🔧",
+      "description": "Experience with development tools, version control, and programming environments.",
+      "tags": ["Git", "GitHub", "Jupyter", "VS Code"]
+    },
+    {
+      "category": "Data Analysis",
+      "emoji": "📈",
+      "description": "Extracting valuable insights from complex data and creating informative visualisations.",
+      "tags": ["Visualisation", "Statistics", "Insights"]
+    }
+  ]
+}
+
