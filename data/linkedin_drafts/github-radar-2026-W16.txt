@@ -1,0 +1,8 @@
+# LinkedIn Draft — GitHub Radar 2026-04-18
+# Copy everything below this line.
+# ────────────────────────────────────────────────────────────
+
+Check out this week's hottest Python repos on GitHub!
+#Python #DataScience
+
+Full breakdown on my blog 👉 https://www.wolflergf.com/blog/github-radar-2026-W16
