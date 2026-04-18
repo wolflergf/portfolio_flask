@@ -2,8 +2,16 @@ name: Update Blog with AI News
 
 on:
   schedule:
-    - cron: "0 8 * * *"   # Every day at 08:00 UTC
-  workflow_dispatch:        # Allow manual trigger from GitHub UI
+    - cron: "0 8 * * *"      # Daily at 08:00 UTC — news post
+    - cron: "0 9 * * 1"      # Every Monday at 09:00 UTC — GitHub Radar
+  workflow_dispatch:
+    inputs:
+      script:
+        description: "Which script to run"
+        required: true
+        default: "both"
+        type: choice
+        options: [news, repos, both]
 
 jobs:
   update-blog:
@@ -19,27 +27,40 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests google-genai python-slugify
+        run: |
+          pip install requests google-genai python-slugify \
+                      newspaper3k beautifulsoup4 lxml
 
-      - name: Run blog updater
+      # ── Daily news post ────────────────────────────────────────────────
+      - name: Run blog updater (news)
+        if: |
+          github.event_name == 'schedule' && contains(github.event.schedule, '0 8') ||
+          github.event_name == 'workflow_dispatch' && (inputs.script == 'news' || inputs.script == 'both')
         env:
-          NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+          NEWS_API_KEY:  ${{ secrets.NEWS_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python utils/blog_updater.py
 
-      - name: Commit and push new post
+      # ── Weekly GitHub Radar ────────────────────────────────────────────
+      - name: Run repo curator (GitHub Radar)
+        if: |
+          github.event_name == 'schedule' && contains(github.event.schedule, '0 9') ||
+          github.event_name == 'workflow_dispatch' && (inputs.script == 'repos' || inputs.script == 'both')
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python utils/repo_curator.py
+
+      # ── Commit all generated files ────────────────────────────────────
+      - name: Commit and push new files
         run: |
-          git config --global user.name "github-actions[bot]"
+          git config --global user.name  "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/blog_posts/*.md
-          # Exit 0 silently if there is nothing new to commit
-          git diff --cached --quiet && echo "[INFO] No new posts." && exit 0
-          git commit -m "auto: new blog post [skip ci]"
+          git add data/blog_posts/*.md data/linkedin_drafts/*.txt 2>/dev/null || true
+          git diff --cached --quiet && echo "[INFO] Nothing new to commit." && exit 0
+          git commit -m "auto: new blog content [skip ci]"
           git push
 
-      - name: Trigger Railway redeploy
-        # Railway re-deploys automatically on push when GitHub integration is active.
-        # This step is a safety net in case you use the Railway deploy webhook instead.
-        # To enable: add RAILWAY_WEBHOOK_URL to your GitHub secrets and uncomment below.
-        # run: curl -X POST "${{ secrets.RAILWAY_WEBHOOK_URL }}"
-        run: echo "Railway redeploy triggered via git push."
+      - name: Summary
+        run: |
+          echo "### Blog update complete" >> $GITHUB_STEP_SUMMARY
+          echo "New files committed to \`data/blog_posts/\` and \`data/linkedin_drafts/\`." >> $GITHUB_STEP_SUMMARY
