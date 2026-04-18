@@ -1,7 +1,8 @@
 import os
 import sys
 import requests
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from slugify import slugify
 from datetime import datetime
 
@@ -42,9 +43,8 @@ def get_tech_news() -> list[dict]:
 
 
 def summarize_with_gemini(title: str, description: str, source_url: str) -> str:
-    """Generate a professional Portuguese summary using Gemini 1.5 Flash."""
-    genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel('gemini-1.5-flash')  # gemini-pro is deprecated
+    """Generate a professional Portuguese summary using Gemini 2.0 Flash."""
+    client = genai.Client(api_key=GEMINI_API_KEY)
 
     prompt = f"""
 Aja como um especialista em tecnologia e Ciência de Dados escrevendo para um blog de portfólio profissional.
@@ -64,7 +64,10 @@ Responda apenas com o corpo do artigo em Markdown, sem título (o título já es
 """
 
     try:
-        response = model.generate_content(prompt)
+        response = client.models.generate_content(
+            model='gemini-2.0-flash',
+            contents=prompt,
+        )
         return response.text
     except Exception as e:
         print(f"[WARNING] Gemini failed, using fallback content. Error: {e}")
