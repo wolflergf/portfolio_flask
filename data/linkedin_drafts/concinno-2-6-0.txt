@@ -1,0 +1,10 @@
+# LinkedIn Draft — 2026-04-19
+# Copy everything below this line and paste into LinkedIn.
+# Update the blog URL if needed: https://www.wolflergf.com/blog/concinno-2-6-0
+# ────────────────────────────────────────────────────────────
+
+Interesting read: concinno 2.6.0
+
+#Python #DataScience #AI
+
+Read my full take 👉 https://www.wolflergf.com/blog/concinno-2-6-0
