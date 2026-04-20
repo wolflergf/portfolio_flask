@@ -34,6 +34,27 @@
                     {{ post.content | safe }}
                 </div>
             </div>
+
+            {% if linkedin_draft %}
+            <div class="card" style="margin-top: 2rem; border-left: 5px solid #0077b5;">
+                <h3 style="color: #0077b5;">🔗 Share on LinkedIn</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">
+                    I've prepared a LinkedIn draft for this post to make it easier to share:
+                </p>
+                <div id="linkedin-text" style="background: #f3f6f8; padding: 1rem; border-radius: 5px; font-family: inherit; white-space: pre-wrap; font-size: 0.95rem; border: 1px solid #e0e0e0;">{{ linkedin_draft }}</div>
+                <button onclick="copyLinkedInDraft()" class="btn btn-primary" style="margin-top: 1rem; background-color: #0077b5;">
+                    Copy Draft
+                </button>
+            </div>
+            <script>
+                function copyLinkedInDraft() {
+                    const text = document.getElementById('linkedin-text').innerText;
+                    navigator.clipboard.writeText(text).then(() => {
+                        alert('LinkedIn draft copied to clipboard!');
+                    });
+                }
+            </script>
+            {% endif %}
         </div>
     </div>
 </section>
@@ -137,4 +158,3 @@
     }
 </style>
 {% endblock %}
-

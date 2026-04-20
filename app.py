@@ -1,5 +1,6 @@
 import os
 import json
+from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_wtf.csrf import CSRFProtect
 from config import config
@@ -35,7 +36,7 @@ def create_app(config_name='default'):
         return {
             'site_name': 'Wolfler Guzzo Ferreira',
             'site_tagline': 'Computer Science Student & Data Scientist',
-            'current_year': 2025
+            'current_year': datetime.now().year
         }
     
     # Routes
@@ -140,9 +141,20 @@ def create_app(config_name='default'):
         all_posts = load_blog_posts(blog_dir)
         recent_posts = [p for p in all_posts if p.slug != slug][:5]
         
+        # Check for LinkedIn draft
+        linkedin_path = os.path.join(app.root_path, 'data', 'linkedin_drafts', f'{slug}.txt')
+        linkedin_draft = None
+        if os.path.exists(linkedin_path):
+            try:
+                with open(linkedin_path, 'r', encoding='utf-8') as f:
+                    linkedin_draft = f.read()
+            except Exception as e:
+                app.logger.error(f"Error reading linkedin draft {slug}: {e}")
+
         return render_template('blog_post.html',
                              post=post,
                              recent_posts=recent_posts,
+                             linkedin_draft=linkedin_draft,
                              page_title=post.title)
     
     @app.route('/contact', methods=['GET', 'POST'])
@@ -208,4 +220,3 @@ if __name__ == '__main__':
     # Use PORT from environment (Railway, Heroku) or default to 5000
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
-
