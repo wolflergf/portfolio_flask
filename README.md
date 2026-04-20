@@ -127,3 +127,12 @@ CONTACT_EMAIL=contact@yourdomain.com
 
 **Built with ❤️ using Flask**
 
+
+## Blog Automation Upgrade
+
+The `blog_updater.py` script has been upgraded to:
+1. Fetch full article content.
+2. Generate professional summaries using Gemini AI.
+3. Create LinkedIn drafts automatically.
+4. Log errors and skips to `data/logs/news_fetch.log`.
+5. Avoid duplicate posts by checking existing slugs.
