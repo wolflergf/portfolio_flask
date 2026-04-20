@@ -1,18 +1,18 @@
-# Portfolio Flask - Wolfler Guzzo Ferreira
+# 🦞 picoclaw-portfolio-flask
 
-Modern, dynamic portfolio website built with Flask, featuring blog, projects showcase, and contact form.
+Modern, dynamic portfolio website built with **Flask 3.0**, designed for Computer Science students and Data Scientists. Featuring an AI-powered blog automation system, project showcase, and seamless deployment integration.
 
 ---
 
 ## ✨ Features
 
-- **Dynamic Content Management** - Projects, skills, and education managed via JSON files
-- **Blog System** - Write posts in Markdown with automatic rendering
-- **Contact Form** - Functional contact form with email integration
-- **Responsive Design** - Mobile-friendly layout
-- **Modern Typography** - Inter font for professional appearance
-- **SEO Optimized** - Meta tags, Open Graph, and Twitter Cards
-- **Project Showcase** - Detailed project pages with tags and links
+- **🤖 AI-Powered Blog Automation** - Integrated with Gemini Pro to fetch, summarize, and draft content daily.
+- **💼 LinkedIn Integration** - Automatically generates and displays LinkedIn sharing drafts for each blog post.
+- **📊 Data-Driven Showcase** - Projects, skills, and education managed via simple JSON files.
+- **📝 Markdown Blog** - Write posts in Markdown; the system handles rendering, excerpts, and syntax highlighting.
+- **✉️ Contact System** - Fully functional contact form with Flask-Mail integration and CSRF protection.
+- **📱 Responsive & Modern UI** - Built with the Inter font family and a mobile-first, clean design.
+- **🔍 SEO Optimized** - Dynamic meta tags, Open Graph support, and Twitter Cards for every page.
 
 ---
 
@@ -20,119 +20,100 @@ Modern, dynamic portfolio website built with Flask, featuring blog, projects sho
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR-USERNAME/portfolio-flask.git
+git clone https://github.com/wolflergf/portfolio-flask.git
 cd portfolio-flask
 
 # Create virtual environment
-python3 -m venv venv
+python -m venv venv
+# Windows:
+venv\Scripts\activate
+# Linux/macOS:
 source venv/bin/activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Create .env file
-cp .env.example .env
+# Configure environment
+cp .env.example .env  # Then edit .env with your keys
 
-# Run application
+# Run development server
 python app.py
-
-# Open http://localhost:5000
 ```
 
 ---
 
-## 🚂 Deploy to Railway (Recommended)
+## 🤖 Blog Automation Script
 
-This project is configured for **Railway** deployment.
+The portfolio includes a sophisticated `utils/blog_updater.py` script designed for cron-job execution (e.g., on Railway or GitHub Actions).
 
-### **Quick Deploy:**
-
-1. Push to GitHub
-2. Create Railway project from GitHub repo
-3. Configure environment variables
-4. Generate domain
-5. Done! 🎉
-
-**Detailed guide:** See `RAILWAY_DEPLOY.md`
+**Capabilities:**
+1. **Fetch**: Pulls the latest tech news via NewsAPI.
+2. **Scrape**: Extracts full content from source URLs.
+3. **Summarize**: Uses Gemini AI to write technical, first-person summaries.
+4. **Draft**: Generates a LinkedIn-ready post with hooks and CTAs.
+5. **Publish**: Saves directly to the `data/blog_posts/` and `data/linkedin_drafts/` directories.
 
 ---
 
 ## 📦 Project Structure
 
-```
+```text
 portfolio_flask/
-├── app.py                  # Main Flask application
-├── config.py               # Configuration
-├── Procfile                # Railway config
-├── requirements.txt        # Dependencies
-├── templates/              # HTML templates
-├── static/                 # CSS, JS, images
-├── data/                   # JSON data files
-└── utils/                  # Utility modules
+├── app.py                  # Flask Application Factory & Routes
+├── config.py               # Environment-based Configurations
+├── data/
+│   ├── blog_posts/         # Markdown articles
+│   ├── linkedin_drafts/    # Generated social drafts
+│   ├── projects.json       # Project data
+│   └── skills.json         # Skills data
+├── static/                 # CSS, JS, and Images
+├── templates/              # Jinja2 HTML Templates
+└── utils/
+    ├── blog_updater.py     # AI Automation Engine
+    ├── email_sender.py     # Mail utilities
+    └── markdown_parser.py  # Blog parsing logic
 ```
-
----
-
-## 🎨 Customization
-
-### **Projects:** Edit `data/projects.json`
-### **Skills:** Edit `data/skills.json`
-### **Education:** Edit `data/education.json`
-### **Blog:** Create `.md` files in `data/blog_posts/`
-### **Assets:** Add to `static/images/` and `static/downloads/`
 
 ---
 
 ## 🔧 Environment Variables
 
+Required variables for full functionality:
+
 ```env
-SECRET_KEY=your-secret-key
+# Flask
+SECRET_KEY=your_secret_key
 FLASK_ENV=production
+
+# Email (Flask-Mail)
 MAIL_SERVER=smtp.gmail.com
 MAIL_PORT=587
-MAIL_USE_TLS=true
 MAIL_USERNAME=your-email@gmail.com
 MAIL_PASSWORD=your-app-password
-CONTACT_EMAIL=contact@yourdomain.com
+CONTACT_EMAIL=your-receiving-email@domain.com
+
+# AI & News (For Blog Automation)
+NEWS_API_KEY=your_newsapi_key
+GEMINI_API_KEY=your_google_gemini_key
 ```
 
 ---
 
 ## 🛠️ Technologies
 
-- Flask 3.0
-- Flask-WTF
-- Flask-Mail
-- Markdown
-- Gunicorn
-- Inter Font
-
----
-
-## 📚 Documentation
-
-- **Railway Deploy:** `RAILWAY_DEPLOY.md` (Complete guide)
-- **Migration:** `MIGRATION_GUIDE.md`
-- **General Deploy:** `DEPLOY.md`
+- **Backend**: Flask 3.0, Gunicorn
+- **Frontend**: Jinja2, Vanilla JS, CSS3 (Inter Font)
+- **AI/API**: Google Gemini Pro, NewsAPI
+- **Tools**: Markdown, Flask-WTF (CSRF), Flask-Mail
 
 ---
 
 ## 👤 Author
 
 **Wolfler Guzzo Ferreira**
-- Website: https://wolflergf.com
-- GitHub: [@wolflergf](https://github.com/wolflergf)
+- **Website**: [wolflergf.com](https://wolflergf.com)
+- **GitHub**: [@wolflergf](https://github.com/wolflergf)
+- **LinkedIn**: [wolflergf](https://linkedin.com/in/wolflergf)
 
 ---
-
-**Built with ❤️ using Flask**
-
-
-## Blog Automation Upgrade
-
-The `blog_updater.py` script has been upgraded to:
-1. Fetch full article content.
-2. Generate professional summaries using Gemini AI.
-3. Create LinkedIn drafts automatically.
-4. Log errors and skips to `data/logs/news_fetch.log`.
-5. Avoid duplicate posts by checking existing slugs.
+*Built and maintained with 🦞 PicoClaw*
