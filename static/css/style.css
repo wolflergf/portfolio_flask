@@ -100,7 +100,7 @@ a:hover {
 .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  padding: 0 1.5rem; /* Garante que o conteúdo nunca toque as bordas */
 }
 
 .section {
@@ -127,7 +127,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-sm) 0;
+  padding: var(--spacing-sm) 1.5rem; /* Adiciona padding horizontal na nav */
 }
 
 .logo {
@@ -136,12 +136,14 @@ a:hover {
   font-weight: 800;
   color: var(--primary-color);
   letter-spacing: -0.03em;
+  padding-left: 0.5rem; /* Margem extra de segurança */
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
   gap: var(--spacing-md);
+  align-items: center;
 }
 
 .nav-link {
@@ -151,6 +153,11 @@ a:hover {
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: 6px;
   transition: var(--transition);
+}
+
+/* Garante que o último item (geralmente Contato) não cole na direita */
+.nav-menu li:last-child .nav-link {
+  margin-right: 0.5rem;
 }
 
 .nav-link:hover,
@@ -167,6 +174,7 @@ a:hover {
   font-size: 1.5rem;
   color: var(--primary-color);
   cursor: pointer;
+  margin-right: 0.5rem; /* Espaçamento para o botão hambúrguer */
 }
 
 /* Hero Section */
@@ -351,4 +359,28 @@ a:hover {
 
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }
+}
+
+/* Fix para botões do GitHub nos cards de projeto */
+.project-card .btn-github {
+  background-color: var(--primary-color);
+  color: var(--white) !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem auto 0; /* Centraliza horizontalmente */
+  width: fit-content;
+  align-self: center;
+}
+
+.project-card .btn-github:hover {
+  background-color: var(--secondary-color);
+  color: var(--white) !important;
+}
+
+.project-card .card-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center; /* Garante que o texto e botões dentro fiquem centralizados se desejado */
 }
