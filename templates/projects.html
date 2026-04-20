@@ -27,12 +27,7 @@
                     <span class="tag">{{ tag }}</span>
                     {% endfor %}
                 </div>
-                <div class="card-actions">
-                    <a href="{{ url_for('project_detail', slug=project.slug) }}" class="btn btn-primary">View Details</a>
-                    {% if project.github_url %}
-                    <a href="{{ project.github_url }}" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
-                    {% endif %}
-                </div>
+                    <a href="{{ project.github_url }}" class="btn btn-github" target="_blank" rel="noopener">GitHub</a>
             </div>
             {% endfor %}
         </div>
@@ -56,12 +51,7 @@
                     <span class="tag">{{ tag }}</span>
                     {% endfor %}
                 </div>
-                <div class="card-actions">
-                    <a href="{{ url_for('project_detail', slug=project.slug) }}" class="btn btn-primary">Details</a>
-                    {% if project.github_url %}
-                    <a href="{{ project.github_url }}" class="btn btn-secondary" target="_blank" rel="noopener">GitHub</a>
-                    {% endif %}
-                </div>
+                    <a href="{{ project.github_url }}" class="btn btn-github" target="_blank" rel="noopener">GitHub</a>
             </div>
             {% endfor %}
         </div>
