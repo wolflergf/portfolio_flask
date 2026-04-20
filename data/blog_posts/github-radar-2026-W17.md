@@ -23,6 +23,6 @@ An AI Hedge Fund Team
 
 | Repository | Language | ⭐ Total | 📈 This Week | Description |
 |---|---|---|---|---|
-| [NousResearch / hermes-agent](https://github.com/NousResearch/hermes-agent) | Python | 104,179 | 38,194 stars this week | The agent that grows with you... |
-| [lsdefine / GenericAgent](https://github.com/lsdefine/GenericAgent) | Python | 4,795 | 3,512 stars this week | Self-evolving agent: grows skill tree from 3.3K-line seed, a... |
-| [virattt / ai-hedge-fund](https://github.com/virattt/ai-hedge-fund) | Python | 56,484 | 4,458 stars this week | An AI Hedge Fund Team... |
+| [NousResearch / hermes-agent](https://github.com/NousResearch/hermes-agent) | Python | 104,192 | 38,194 stars this week | The agent that grows with you... |
+| [lsdefine / GenericAgent](https://github.com/lsdefine/GenericAgent) | Python | 4,796 | 3,512 stars this week | Self-evolving agent: grows skill tree from 3.3K-line seed, a... |
+| [virattt / ai-hedge-fund](https://github.com/virattt/ai-hedge-fund) | Python | 56,485 | 4,458 stars this week | An AI Hedge Fund Team... |
