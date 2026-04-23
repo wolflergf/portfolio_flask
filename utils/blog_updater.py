@@ -27,6 +27,10 @@ BLOG_DIR     = os.path.join(PROJECT_ROOT, 'data', 'blog_posts')
 LINKEDIN_DIR = os.path.join(PROJECT_ROOT, 'data', 'linkedin_drafts')
 LOG_DIR      = os.path.join(PROJECT_ROOT, 'data', 'logs')
 
+print(f"DEBUG: SCRIPT_DIR is {SCRIPT_DIR}")
+print(f"DEBUG: PROJECT_ROOT is {PROJECT_ROOT}")
+print(f"DEBUG: BLOG_DIR absolute path is {os.path.abspath(BLOG_DIR)}")
+
 os.makedirs(LOG_DIR, exist_ok=True)
 logging.basicConfig(
     filename=os.path.join(LOG_DIR, 'news_fetch.log'),
