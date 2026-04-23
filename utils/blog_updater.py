@@ -3,6 +3,7 @@ blog_updater.py
 ---------------
 Refactored for peak architectural performance and stability.
 Handles 429 Resource Exhausted errors with exponential backoff.
+Uses relative pathing from script location for portability.
 """
 
 import os
@@ -19,7 +20,9 @@ import logging
 NEWS_API_KEY   = os.getenv('NEWS_API_KEY')
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Use script location to determine paths
+SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR) # portfolio_flask/
 BLOG_DIR     = os.path.join(PROJECT_ROOT, 'data', 'blog_posts')
 LINKEDIN_DIR = os.path.join(PROJECT_ROOT, 'data', 'linkedin_drafts')
 LOG_DIR      = os.path.join(PROJECT_ROOT, 'data', 'logs')
@@ -69,7 +72,6 @@ def clean_extract(url: str) -> str:
         main = soup.find('main') or soup.find('article') or soup.body
         text = main.get_text(separator=' ', strip=True) if main else soup.get_text(separator=' ', strip=True)
         
-        # Limit to 8000 characters to ensure we stay well within Gemini's context window and free tier limits
         return text[:8000]
     except Exception as e:
         logging.warning(f"Extraction failed for {url}: {e}")
@@ -106,7 +108,6 @@ def generate_content(title, body, url):
         if not response: return None
         summary = response.text.strip()
         
-        # LinkedIn Draft
         li_prompt = f"Create a short, engaging LinkedIn post based on this summary. Include a link to the blog: https://www.wolflergf.com/blog/{slugify(title)}\n\nSUMMARY:\n{summary}"
         li_response = generate_with_backoff(client, 'gemini-2.0-flash', li_prompt)
         
@@ -133,12 +134,10 @@ def update_blog():
         generated = generate_content(title, body, url)
         if not generated: continue
         
-        # Write Blog
         os.makedirs(BLOG_DIR, exist_ok=True)
         with open(os.path.join(BLOG_DIR, f'{slug}.md'), 'w', encoding='utf-8') as f:
             f.write(f"---\ntitle: {title}\ndate: {datetime.now().strftime('%Y-%m-%d')}\nsource_url: {url}\n---\n\n{generated['summary']}\n\n[Read the full article here]({url})")
             
-        # Write LinkedIn
         os.makedirs(LINKEDIN_DIR, exist_ok=True)
         with open(os.path.join(LINKEDIN_DIR, f'{slug}.txt'), 'w', encoding='utf-8') as f:
             f.write(generated['linkedin'])
