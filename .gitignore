@@ -44,4 +44,8 @@ Thumbs.db
 
 # Logs
 *.log
+data/logs/
 
+# Data - ALLOWING posts and drafts to be tracked
+!data/blog_posts/
+!data/linkedin_drafts/
