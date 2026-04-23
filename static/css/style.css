@@ -10,15 +10,11 @@
 
 :root {
   /* Paleta de cores */
-  --primary-color: #1a2a3a;
-  --secondary-color: #1abc9c;
-  --neutral-light: #f8f9fa;
-  --neutral-dark: #6c757d;
-  --accent-color: #e67e22;
-  --white: #ffffff;
-  --text-dark: #2c3e50;
-  --text-light: #5a6c7d;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --primary-color: #0f172a;
+  --secondary-color: #10b981;
+  --neutral-light: #f1f5f9;
+  --card-radius: 16px;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 
   /* Tipografia */
   --font-heading:
@@ -383,4 +379,23 @@ a:hover {
   display: flex;
   flex-direction: column;
   text-align: center; /* Garante que o texto e botões dentro fiquem centralizados se desejado */
+}
+
+/* Dark Mode Toggle Implementation */
+[data-theme="dark"] {
+  --primary-color: #f8fafc;
+  --white: #0f172a;
+  --text-dark: #f1f5f9;
+  --text-light: #cbd5e1;
+  --neutral-light: #1e293b;
+  --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+  border-radius: var(--card-radius);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
