@@ -21,17 +21,21 @@ NEWS_API_KEY   = os.getenv('NEWS_API_KEY')
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 # Use script location to determine paths
+# In GitHub Actions with working-directory: portfolio_flask
+# SCRIPT_DIR will be /home/runner/work/repo/repo/portfolio_flask/utils
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR) # portfolio_flask/
 BLOG_DIR     = os.path.join(PROJECT_ROOT, 'data', 'blog_posts')
 LINKEDIN_DIR = os.path.join(PROJECT_ROOT, 'data', 'linkedin_drafts')
 LOG_DIR      = os.path.join(PROJECT_ROOT, 'data', 'logs')
 
+os.makedirs(BLOG_DIR, exist_ok=True)
+os.makedirs(LINKEDIN_DIR, exist_ok=True)
+os.makedirs(LOG_DIR, exist_ok=True)
+
 print(f"DEBUG: SCRIPT_DIR is {SCRIPT_DIR}")
 print(f"DEBUG: PROJECT_ROOT is {PROJECT_ROOT}")
 print(f"DEBUG: BLOG_DIR absolute path is {os.path.abspath(BLOG_DIR)}")
-
-os.makedirs(LOG_DIR, exist_ok=True)
 logging.basicConfig(
     filename=os.path.join(LOG_DIR, 'news_fetch.log'),
     level=logging.INFO,

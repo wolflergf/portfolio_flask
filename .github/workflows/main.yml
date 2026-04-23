@@ -25,20 +25,25 @@ jobs:
         run: |
           pip install requests google-genai python-slugify beautifulsoup4 lxml
 
+      - name: Debug Path Structure
+        run: |
+          echo "Current Working Directory:"
+          pwd
+          echo "Directory Listing (Recursive):"
+          ls -R
+
       - name: Run Intelligence-Driven News Blog
         env:
           NEWS_API_KEY:  ${{ secrets.NEWS_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-        run: python portfolio_flask/utils/blog_updater.py
+        working-directory: portfolio_flask
+        run: python utils/blog_updater.py
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add portfolio_flask/data/blog_posts/*.md || true
-          git add portfolio_flask/data/linkedin_drafts/*.txt || true
-          git add .
+          git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update: New AI Blog Posts [$(date +'%Y-%m-%d')]"
           git push
         env:
