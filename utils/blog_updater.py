@@ -1,12 +1,13 @@
 """
 blog_updater.py
 ---------------
-Refactored for peak architectural performance.
-Uses BeautifulSoup for clean extraction and Gemini for intelligent summarization.
+Refactored for peak architectural performance and stability.
+Handles 429 Resource Exhausted errors with exponential backoff.
 """
 
 import os
 import sys
+import time
 import requests
 from bs4 import BeautifulSoup
 from google import genai
@@ -15,7 +16,6 @@ from datetime import datetime
 import logging
 
 # Configuration
-# Note: In this environment, we rely on the parent or local .env
 NEWS_API_KEY   = os.getenv('NEWS_API_KEY')
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
@@ -34,9 +34,7 @@ logging.basicConfig(
 def validate_env():
     missing = [k for k in ('NEWS_API_KEY', 'GEMINI_API_KEY') if not os.getenv(k)]
     if missing:
-        # Fallback check: try to read from a local .env if exists
-        print(f"[DEBUG] Missing: {missing}. Checking local environment...")
-        # (In a real scenario, I'd load_dotenv here if not already loaded)
+        logging.error(f"Missing environment variables: {missing}")
 
 def get_tech_news() -> list[dict]:
     url = (
@@ -56,17 +54,42 @@ def get_tech_news() -> list[dict]:
         return []
 
 def clean_extract(url: str) -> str:
-    """Robust extraction using BeautifulSoup."""
+    """Aggressively strip HTML to save tokens and stay within free tier limits."""
     try:
         headers = {'User-Agent': 'Mozilla/5.0'}
         r = requests.get(url, timeout=15, headers=headers)
         r.raise_for_status()
         soup = BeautifulSoup(r.text, 'html.parser')
-        for s in soup(['script', 'style']): s.decompose()
-        return soup.get_text(separator=' ', strip=True)
+        
+        # Remove non-content elements
+        for s in soup(['script', 'style', 'nav', 'footer', 'header', 'aside']): 
+            s.decompose()
+            
+        # Extract text from main content areas if possible
+        main = soup.find('main') or soup.find('article') or soup.body
+        text = main.get_text(separator=' ', strip=True) if main else soup.get_text(separator=' ', strip=True)
+        
+        # Limit to 8000 characters to ensure we stay well within Gemini's context window and free tier limits
+        return text[:8000]
     except Exception as e:
         logging.warning(f"Extraction failed for {url}: {e}")
         return ''
+
+def generate_with_backoff(client, model, contents, retries=3, initial_delay=10):
+    """Exponential backoff for Gemini API 429 errors."""
+    for i in range(retries):
+        try:
+            response = client.models.generate_content(model=model, contents=contents)
+            return response
+        except Exception as e:
+            if "429" in str(e) or "RESOURCE_EXHAUSTED" in str(e):
+                delay = initial_delay * (2 ** i)
+                logging.warning(f"Quota exceeded. Retrying in {delay}s... (Attempt {i+1}/{retries})")
+                time.sleep(delay)
+            else:
+                logging.error(f"Gemini API error: {e}")
+                raise e
+    return None
 
 def generate_content(title, body, url):
     client = genai.Client(api_key=GEMINI_API_KEY)
@@ -76,22 +99,20 @@ def generate_content(title, body, url):
         "Write in first person as if I wrote this article. Be concise, clear, and engaging. 3 to 5 paragraphs."
     )
     
-    prompt = f"{system_instruction}\n\nARTICLE TITLE: {title}\nARTICLE CONTENT:\n{body[:15000]}"
+    prompt = f"{system_instruction}\n\nARTICLE TITLE: {title}\nARTICLE CONTENT:\n{body}"
     
     try:
-        response = client.models.generate_content(
-            model='gemini-2.0-flash',
-            contents=prompt,
-        )
+        response = generate_with_backoff(client, 'gemini-2.0-flash', prompt)
+        if not response: return None
         summary = response.text.strip()
         
         # LinkedIn Draft
         li_prompt = f"Create a short, engaging LinkedIn post based on this summary. Include a link to the blog: https://www.wolflergf.com/blog/{slugify(title)}\n\nSUMMARY:\n{summary}"
-        li_response = client.models.generate_content(model='gemini-2.0-flash', contents=li_prompt)
+        li_response = generate_with_backoff(client, 'gemini-2.0-flash', li_prompt)
         
-        return {'summary': summary, 'linkedin': li_response.text.strip()}
+        return {'summary': summary, 'linkedin': li_response.text.strip() if li_response else ""}
     except Exception as e:
-        logging.error(f"Gemini error: {e}")
+        logging.error(f"Generation failed: {e}")
         return None
 
 def update_blog():
