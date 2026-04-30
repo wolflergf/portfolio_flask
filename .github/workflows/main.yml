@@ -36,7 +36,7 @@ jobs:
         env:
           NEWS_API_KEY:  ${{ secrets.NEWS_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        working-directory: portfolio_flask
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         run: python utils/blog_updater.py
 
       - name: Commit and Push changes
