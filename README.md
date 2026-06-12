@@ -1,119 +1,127 @@
-# 🦞 picoclaw-portfolio-flask
+# 🚀 AI-Driven Portfolio Engine
 
-Modern, dynamic portfolio website built with **Flask 3.0**, designed for Computer Science students and Data Scientists. Featuring an AI-powered blog automation system, project showcase, and seamless deployment integration.
+[![Deploy to Production](https://github.com/wolflergf/portfolio_flask/actions/workflows/main.yml/badge.svg)](https://github.com/wolflergf/portfolio_flask/actions/workflows/main.yml)
+[![Python Version](https://img.shields.io/badge/python-3.12%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Environment Management](https://img.shields.io/badge/managed%20by-uv-purple?logo=python&logoColor=white)](https://github.com/astral-sh/uv)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
----
+A high-performance, autonomous portfolio and blog ecosystem built with **Flask 3.0**, powered by **Google Gemini 2.0 Flash**, and orchestrated via **GitHub Actions**. This isn't just a website; it's a self-sustaining content engine.
 
-## ✨ Features
-
-- **🤖 AI-Powered Blog Automation** - Integrated with Gemini Pro to fetch, summarize, and draft content daily.
-- **💼 LinkedIn Integration** - Automatically generates and displays LinkedIn sharing drafts for each blog post.
-- **📊 Data-Driven Showcase** - Projects, skills, and education managed via simple JSON files.
-- **📝 Markdown Blog** - Write posts in Markdown; the system handles rendering, excerpts, and syntax highlighting.
-- **✉️ Contact System** - Fully functional contact form with Flask-Mail integration and CSRF protection.
-- **📱 Responsive & Modern UI** - Built with the Inter font family and a mobile-first, clean design.
-- **🔍 SEO Optimized** - Dynamic meta tags, Open Graph support, and Twitter Cards for every page.
+**🔗 Live Site:** [wolflergf.com](https://wolflergf.com)
 
 ---
 
-## 🚀 Quick Start (Local)
+## 💎 Core Philosophy
 
-```bash
-# Clone repository
-git clone https://github.com/wolflergf/portfolio-flask.git
-cd portfolio-flask
+This project showcases the intersection of **Software Engineering** and **Autonomous AI**. It is designed to be low-maintenance and high-impact, featuring a "self-healing" architecture that automates content curation, technical summarization, and social media outreach.
 
-# Create virtual environment
-python -m venv venv
-# Windows:
-venv\Scripts\activate
-# Linux/macOS:
-source venv/bin/activate
+### Key Features
+- **🤖 Autonomous AI Blog**: Every 48 hours, a background worker fetches trending tech news via NewsAPI, synthesizes high-quality technical summaries using Gemini 2.0 Flash, and commits them directly to the repository.
+- **⚡ Modern Tech Stack**: Built with Flask 3.0, leveraging `uv` for lightning-fast dependency management and deterministic environments.
+- **🎨 Sleek UI/UX**: A responsive, dark-mode-first aesthetic inspired by the *Everforest* palette, focusing on typography and readability.
+- **🛡️ Secure Communications**: Production-ready contact form with CSRF protection and Flask-Mail (SMTP) integration.
+- **📈 SEO & Social Ready**: Dynamic OpenGraph tags, Twitter Cards, and automated LinkedIn post generation for every blog update.
 
-# Install dependencies
-pip install -r requirements.txt
+---
 
-# Configure environment
-cp .env.example .env  # Then edit .env with your keys
+## 🏗️ Architecture & Data Flow
 
-# Run development server
-python app.py
+The system operates as a closed-loop autonomous engine:
+
+```mermaid
+graph TD
+    A[GitHub Actions Cron: 48h] --> B[Environment Setup: uv]
+    B --> C[blog_updater.py]
+    C --> D[NewsAPI: Fetch Tech Trends]
+    D --> E[Gemini 2.0 Flash: Summary & LinkedIn Post]
+    E --> F[Local Filesystem: .md & .txt]
+    F --> G[Git: Commit & Push to Main]
+    G --> H[Production Deployment: Auto-Refresh]
 ```
 
----
-
-## 🤖 Blog Automation Script
-
-The portfolio includes a sophisticated `utils/blog_updater.py` script designed for cron-job execution (e.g., on Railway or GitHub Actions).
-
-**Capabilities:**
-1. **Fetch**: Pulls the latest tech news via NewsAPI.
-2. **Scrape**: Extracts full content from source URLs.
-3. **Summarize**: Uses Gemini AI to write technical, first-person summaries.
-4. **Draft**: Generates a LinkedIn-ready post with hooks and CTAs.
-5. **Publish**: Saves directly to the `data/blog_posts/` and `data/linkedin_drafts/` directories.
+1.  **Ingestion**: The system polls global tech news for high-signal articles.
+2.  **Processing**: Gemini 2.0 Flash acts as a technical editor, transforming raw news into first-person technical insights.
+3.  **Persistence**: The worker uses a resilient Git-push strategy to commit new content as Markdown, ensuring the repository remains the single source of truth.
+4.  **Distribution**: Simultaneously generates LinkedIn-ready drafts to streamline professional networking.
 
 ---
 
-## 📦 Project Structure
+## 🛠️ Local Development
+
+This project uses [uv](https://github.com/astral-sh/uv) for Python package management. It is significantly faster and more reliable than traditional `pip` workflows.
+
+### Prerequisites
+- Python 3.12+
+- `uv` installed (`powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`)
+
+### Setup
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/wolflergf/portfolio_flask.git
+   cd portfolio_flask
+   ```
+
+2. **Initialize environment & install dependencies:**
+   ```bash
+   uv sync
+   ```
+
+3. **Configure Environment Variables:**
+   Create a `.env` file in the root directory:
+   ```env
+   FLASK_SECRET_KEY=your_secret_key
+   NEWS_API_KEY=your_newsapi_key
+   GEMINI_API_KEY=your_gemini_key
+   MAIL_SERVER=smtp.gmail.com
+   MAIL_PORT=587
+   MAIL_USE_TLS=True
+   MAIL_USERNAME=your_email
+   MAIL_PASSWORD=your_app_password
+   ```
+
+4. **Run the application:**
+   ```bash
+   uv run flask run
+   ```
+
+---
+
+## 🤖 AI Automation Commands
+
+You can trigger the content engine manually using `uv`:
+
+- **Run Mock Update (Test AI Generation):**
+  ```bash
+  uv run utils/mock_updater.py
+  ```
+- **Run Full Production Sync:**
+  ```bash
+  uv run utils/blog_updater.py
+  ```
+
+---
+
+## 📁 Project Structure
 
 ```text
 portfolio_flask/
-├── app.py                  # Flask Application Factory & Routes
-├── config.py               # Environment-based Configurations
-├── data/
-│   ├── blog_posts/         # Markdown articles
-│   ├── linkedin_drafts/    # Generated social drafts
-│   ├── projects.json       # Project data
-│   └── skills.json         # Skills data
-├── static/                 # CSS, JS, and Images
-├── templates/              # Jinja2 HTML Templates
-└── utils/
-    ├── blog_updater.py     # AI Automation Engine
-    ├── email_sender.py     # Mail utilities
-    └── markdown_parser.py  # Blog parsing logic
+├── data/               # Persistent JSON & Markdown content
+│   ├── blog_posts/     # AI-generated .md files
+│   └── projects.json   # Portfolio project definitions
+├── static/             # Assets (CSS/JS/Images)
+├── templates/          # Jinja2 HTML templates
+├── utils/              # AI Logic & Automation scripts
+├── .github/workflows/  # CI/CD & Cron Job definitions
+├── app.py              # Main Flask Entrypoint
+└── pyproject.toml      # Modern dependency configuration
 ```
 
 ---
 
-## 🔧 Environment Variables
+## 📄 License
 
-Required variables for full functionality:
-
-```env
-# Flask
-SECRET_KEY=your_secret_key
-FLASK_ENV=production
-
-# Email (Flask-Mail)
-MAIL_SERVER=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USERNAME=your-email@gmail.com
-MAIL_PASSWORD=your-app-password
-CONTACT_EMAIL=your-receiving-email@domain.com
-
-# AI & News (For Blog Automation)
-NEWS_API_KEY=your_newsapi_key
-GEMINI_API_KEY=your_google_gemini_key
-```
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## 🛠️ Technologies
-
-- **Backend**: Flask 3.0, Gunicorn
-- **Frontend**: Jinja2, Vanilla JS, CSS3 (Inter Font)
-- **AI/API**: Google Gemini Pro, NewsAPI
-- **Tools**: Markdown, Flask-WTF (CSRF), Flask-Mail
-
----
-
-## 👤 Author
-
-**Wolfler Guzzo Ferreira**
-- **Website**: [wolflergf.com](https://wolflergf.com)
-- **GitHub**: [@wolflergf](https://github.com/wolflergf)
-- **LinkedIn**: [wolflergf](https://linkedin.com/in/wolflergf)
-
----
-*Built and maintained with 🦞 PicoClaw*
+**Developed with 🦀 and 🦞 by [Wolfler](https://github.com/wolflergf)**
