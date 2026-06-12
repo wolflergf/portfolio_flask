@@ -44,11 +44,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Check if there are any changes in the data or logs directories
-          if [ -n "$(git status --porcelain data/)" ]; then
-            echo "Changes detected in data directory. Staging files..."
-            git add data/
-            git commit -m "Auto-update: New AI Blog Posts [$(date +'%Y-%m-%d')]"
+        # Check if there are any changes in the repository
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "Changes detected. Staging files..."
+          git add .
+          git commit -m "Auto-update: New AI Blog Posts [$(date +'%Y-%m-%d')]"
             git push origin HEAD:main
           else
             echo "No new blog posts or data changes detected. Skipping commit."

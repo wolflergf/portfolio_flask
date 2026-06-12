@@ -127,31 +127,49 @@ def generate_content(title, body, url):
 def update_blog():
     validate_env()
     articles = get_tech_news()
+    if not articles:
+        print("DEBUG: No articles fetched from NewsAPI.")
+        return
+
     for article in articles:
         title = article.get('title')
         url = article.get('url')
         if not title or not url or '[Removed]' in title: continue
         
         slug = slugify(title)
-        if os.path.exists(os.path.join(BLOG_DIR, f'{slug}.md')): continue
+        blog_filename = f'{slug}.md'
+        blog_path = os.path.join(BLOG_DIR, blog_filename)
+        
+        if os.path.exists(blog_path):
+            print(f"DEBUG: Skipping {title}, file already exists.")
+            continue
         
         print(f"Refactoring content for: {title}")
         body = clean_extract(url)
-        if not body: continue
+        if not body:
+            print(f"DEBUG: Extraction failed for {url}")
+            continue
         
         generated = generate_content(title, body, url)
-        if not generated: continue
+        if not generated:
+            print(f"DEBUG: AI generation failed for {title}")
+            continue
         
+        # Ensure directories exist right before writing
         os.makedirs(BLOG_DIR, exist_ok=True)
-        with open(os.path.join(BLOG_DIR, f'{slug}.md'), 'w', encoding='utf-8') as f:
+        os.makedirs(LINKEDIN_DIR, exist_ok=True)
+        
+        print(f"DEBUG: Writing blog to {os.path.abspath(blog_path)}")
+        with open(blog_path, 'w', encoding='utf-8') as f:
             f.write(f"---\ntitle: {title}\ndate: {datetime.now().strftime('%Y-%m-%d')}\nsource_url: {url}\n---\n\n{generated['summary']}\n\n[Read the full article here]({url})")
             
-        os.makedirs(LINKEDIN_DIR, exist_ok=True)
-        with open(os.path.join(LINKEDIN_DIR, f'{slug}.txt'), 'w', encoding='utf-8') as f:
+        linkedin_path = os.path.join(LINKEDIN_DIR, f'{slug}.txt')
+        print(f"DEBUG: Writing LinkedIn draft to {os.path.abspath(linkedin_path)}")
+        with open(linkedin_path, 'w', encoding='utf-8') as f:
             f.write(generated['linkedin'])
             
         print(f"Successfully updated blog with: {title}")
-        break
+        # break # Removed break to allow multiple updates per run if applicable
 
 if __name__ == '__main__':
     update_blog()
