@@ -15,10 +15,12 @@ from google import genai
 from slugify import slugify
 from datetime import datetime
 import logging
-from dotenv import load_dotenv
-
-# Load environment variables from .env file
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    # Load environment variables from .env file 
+    load_dotenv()
+except ImportError:
+    print("python-dotenv not installed. Using system enviroment varibles.")
 
 # Configuration
 NEWS_API_KEY   = os.getenv('NEWS_API_KEY')
@@ -116,12 +118,12 @@ def generate_content(title, body, url):
     prompt = f"{system_instruction}\n\nARTICLE TITLE: {title}\nARTICLE CONTENT:\n{body}"
     
     try:
-        response = generate_with_backoff(client, 'gemini-1.5-flash-002', prompt)
+        response = generate_with_backoff(client, 'gemini-2.5-flash', prompt)
         if not response: return None
         summary = response.text.strip()
         
         li_prompt = f"Create a short, engaging LinkedIn post based on this summary. Include a link to the blog: https://www.wolflergf.com/blog/{slugify(title)}\n\nSUMMARY:\n{summary}"
-        li_response = generate_with_backoff(client, 'gemini-1.5-flash-002', li_prompt)
+        li_response = generate_with_backoff(client, 'gemini-2.5-flash', li_prompt)
         
         return {'summary': summary, 'linkedin': li_response.text.strip() if li_response else ""}
     except Exception as e:
