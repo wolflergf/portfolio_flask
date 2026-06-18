@@ -1,0 +1,61 @@
+Here are a few options for a LinkedIn post, choose the one that best fits your personal style!
+
+---
+
+**Option 1: Direct & Benefit-Oriented**
+
+Huge news for secure development! 🎉 I'm thrilled to announce `leakproof` is now available on PyPI!
+
+Are your security and compliance standards (like SOC 2, HIPAA, GDPR) forcing you to ban powerful AI coding assistants due to fear of data leaks? `leakproof` solves this!
+
+It's a **local-first secret firewall** that lets you safely re-enable tools like Claude Code or Cursor. `leakproof` vigilantly scans and cleans outbound requests *before* they leave your machine, using advanced detection to catch secrets (from AWS keys to PII) that others miss.
+
+Embrace AI-assisted development without compromise:
+✅ Local-first design
+✅ Zero cloud dependency
+✅ Robust secret detection
+✅ Peace of mind
+
+The core CLI is free and open-source (Apache-2.0)!
+
+Learn how `leakproof` can transform your secure dev workflow:
+👉 [https://www.wolflergf.com/blog/leakproof-added-to-pypi](https://www.wolflergf.com/blog/leakproof-added-to-pypi)
+
+#Python #Security #AI #Developers #DataScience #OpenSource #Compliance #PyPI #DevSecOps
+
+---
+
+**Option 2: Engaging Question Start**
+
+Tired of choosing between powerful AI coding assistants and strict security compliance? 🤔 I'm incredibly excited to share `leakproof`, a new tool now live on PyPI, designed to end that dilemma!
+
+Many teams ban AI tools like Claude Code or Cursor because they automatically send sensitive context to the cloud. `leakproof` changes the game by providing a **local-first secret firewall**. It lets you turn those valuable AI tools back on safely!
+
+`leakproof` acts as a guardian right on your machine, scanning and redacting secrets *locally* with advanced detection capabilities far beyond simple keyword checks. This means your AWS keys, PII, and other sensitive data stay private, always.
+
+Boost productivity securely:
+*   Local-first, zero cloud dependency
+*   Comprehensive secret detection
+*   Free & open-source core CLI
+
+Ready to innovate faster and more securely? Discover `leakproof`:
+🔗 [https://www.wolflergf.com/blog/leakproof-added-to-pypi](https://www.wolflergf.com/blog/leakproof-added-to-pypi)
+
+#Python #AI #Security #Compliance #Developers #DataScience #OpenSource #PyPI #Innovation
+
+---
+
+**Option 3: More Concise**
+
+Big news for developers and data scientists! 🎉 My new tool, `leakproof`, is now live on PyPI!
+
+Solving the headache of using AI coding assistants (like Claude Code, Cursor) while adhering to strict security standards (SOC 2, HIPAA, GDPR). `leakproof` is a **local-first secret firewall** that allows you to safely leverage AI without risking sensitive data leaks.
+
+It stops secrets dead in their tracks – locally – before they ever leave your machine, with advanced detection that catches what others miss.
+
+Empower your team, protect your data, and boost productivity! The core CLI is free and open-source.
+
+Get all the details here:
+➡️ [https://www.wolflergf.com/blog/leakproof-added-to-pypi](https://www.wolflergf.com/blog/leakproof-added-to-pypi)
+
+#Python #AI #Security #DataPrivacy #Developers #OpenSource #PyPI #Compliance

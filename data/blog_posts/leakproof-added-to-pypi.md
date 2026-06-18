@@ -1,0 +1,15 @@
+---
+title: leakproof added to PyPI
+date: 2026-06-18
+source_url: https://pypi.org/project/leakproof/
+---
+
+I'm thrilled to share an important new tool I've developed, `leakproof`, now available on PyPI! My goal with `leakproof` is to solve a significant headache for developers and data scientists: the tension between leveraging powerful AI coding assistants and adhering to strict organizational security and compliance standards. Many teams, especially those under SOC 2, HIPAA, or GDPR, have had to ban tools like Claude Code or Cursor because they automatically send working-tree context, including sensitive secrets, to the cloud. `leakproof` changes this by providing a local-first secret firewall, letting you turn those valuable AI tools back on safely.
+
+For developers and data scientists, `leakproof` fundamentally alters how you can interact with AI assistants. Instead of constantly worrying about what your AI tool might inadvertently send to a third-party API, `leakproof` acts as a vigilant guardian right on your machine. You can either wrap your AI tool (e.g., `leakproof run -- claude`) to scan and clean every outbound request, or use `leakproof install-hook` to integrate it as a pre-commit check, stopping secrets before they ever reach a commit. The practical benefit here is immediate peace of mind and significantly enhanced productivity, as you can fully utilize AI assistants without compromising your team's data security or privacy. Every decision to redact or block happens locally, ensuring no metadata or sensitive information ever leaves your machine without your explicit control, and all actions are logged in an append-only audit trail for full transparency.
+
+What sets `leakproof` apart from existing solutions like `detect-secrets` is its advanced detection capabilities. While keyword scanners often miss secrets embedded in prose comments, benign variable names, or base64-encoded forms, `leakproof` uses a combination of regex, high-entropy detection, and an optional local-model semantic check to catch what others miss. This means it can identify and protect a wider range of sensitive data, from AWS keys and Stripe tokens to PEM private keys and PII, all while intelligently ignoring false positives like documentation placeholders. This robust detection ensures that your sensitive data is genuinely protected, not just screened by superficial checks.
+
+The key takeaway for any developer or data scientist is that `leakproof` empowers you to embrace the future of AI-assisted development without fear. It removes the security bottleneck that often prevents the adoption of these powerful tools, allowing you to innovate faster and more securely. With its local-first design, zero cloud dependency, and comprehensive secret detection, `leakproof` ensures that your workflow remains private, compliant, and efficient. The core CLI is completely free and open-source (Apache-2.0), providing an essential security layer for individual developers, while optional team features are available for larger compliance-bound organizations.
+
+[Read the full article here](https://pypi.org/project/leakproof/)
