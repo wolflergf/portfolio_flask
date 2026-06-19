@@ -1,0 +1,24 @@
+Here's a short, engaging LinkedIn post based on your summary:
+
+---
+
+Ever found your AI agents stuck in an endless loop? 🤯 Or wondered where your API costs went after a complex conversation?
+
+I'm thrilled to introduce **LoopHalter** (aka AgentTracker), now officially on PyPI! ✨
+
+For anyone building sophisticated multi-agent systems with frameworks like CrewAI, AutoGen, or LangChain, you know the challenges: opaque conversations, unpredictable costs, and those frustrating infinite loops.
+
+LoopHalter is designed to bring order to the chaos by offering:
+*   🔍 **Intelligent Loop Detection:** Actively prevents agents from getting stuck in costly repetitive cycles.
+*   💬 **Comprehensive Message Tracking:** Get a full, queryable history of every interaction, sender, recipient, and token used.
+*   💰 **Granular Cost Calculation:** Understand and predict your API expenses across models like GPT-4, GPT-3.5-turbo.
+
+Imagine debugging with a clear, timestamped log, or preventing budget overruns *before* they happen. LoopHalter makes your AI agent development more reliable, cost-efficient, and transparent.
+
+Easy to integrate (`pip install LoopHalter`) and ready to fit seamlessly into your existing projects.
+
+Ready to build more robust AI agent applications? Dive into the details and learn how LoopHalter can transform your workflow:
+
+➡️ [https://www.wolflergf.com/blog/loophalter-added-to-pypi](https://www.wolflergf.com/blog/loophalter-added-to-pypi)
+
+#AI #AgentSystems #Python #Developers #DataScience #CrewAI #LangChain #AutoGen #OpenSource #LLM #Monitoring

@@ -1,0 +1,17 @@
+---
+title: LoopHalter added to PyPI
+date: 2026-06-19
+source_url: https://pypi.org/project/loophalter/
+---
+
+I'm excited to share a new tool I've developed, LoopHalter (also known as AgentTracker), which I've just released on PyPI. As developers and data scientists increasingly build sophisticated AI agent systems using frameworks like CrewAI, AutoGen, or LangChain, we often face significant challenges: agents getting stuck in repetitive loops, conversations becoming opaque, and unpredictable API costs spiraling out of control. My goal with LoopHalter was to directly address these pain points, providing a robust solution for tracking, monitoring, and analyzing agent interactions.
+
+For anyone working with multi-agent architectures, LoopHalter offers immediate practical benefits that will profoundly impact your daily work. At its core, it acts as comprehensive monitoring middleware. I've built in **message tracking** to give you a complete, queryable history of every exchanged message, including sender, recipient, content, and tokens used. More critically, my **intelligent loop detection algorithm** actively monitors conversations, flagging or even halting agents when repetitive patterns emerge. This means you can catch and prevent costly infinite loops before they drain your budget or frustrate your users. Complementing this, the **cost calculation** feature provides granular estimates for your agent sessions based on tokens consumed across various models like GPT-4 and GPT-3.5-turbo, offering invaluable insights into your operational expenses.
+
+The impact on a developer's daily work is significant. Imagine debugging a complex agent workflow; instead of guessing where things went wrong, you have a clear, timestamped log of interactions. LoopHalter transforms this often-frustrating process into a more data-driven and efficient one. It helps you build more reliable systems by proactively identifying and preventing common failure modes. Moreover, I designed LoopHalter for ease of use and integration: a simple `pip install LoopHalter` gets you started, and it requires no external dependencies beyond Python 3.8+. I've also provided clear integration paths for frameworks like CrewAI, ensuring it fits seamlessly into your existing projects.
+
+Beyond just detection, LoopHalter provides powerful analysis and reporting capabilities. You can export full conversation logs, generate session summaries, and even get statistics per agent, giving you a holistic view of your system's performance and behavior. The loop detection itself is highly configurable, allowing you to fine-tune the similarity threshold and repetition count to suit the specific needs of your agents, offering both flexibility and precise control over how your systems operate. This level of insight and control is crucial for iterating quickly and deploying with confidence.
+
+Ultimately, LoopHalter is designed to be an indispensable tool for anyone building, testing, or deploying AI agent applications. It brings much-needed observability, cost predictability, and stability to what can often be a chaotic development landscape. My key takeaway is this: by integrating LoopHalter, you're not just adding a dependency; you're adopting a proactive approach to building more robust, cost-efficient, and transparent AI agent systems, freeing you to focus on the truly innovative aspects of your projects.
+
+[Read the full article here](https://pypi.org/project/loophalter/)
