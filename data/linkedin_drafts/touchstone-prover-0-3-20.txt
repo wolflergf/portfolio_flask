@@ -1,0 +1,18 @@
+Here's a short, engaging LinkedIn post:
+
+---
+
+Building systems you can *truly* trust? We've got big news! 🚀
+
+Introducing **`touchstone-prover 0.3.20`** – a significant update designed to make verifiable computations more accessible and efficient for everyone.
+
+✅ **For Developers:** Streamline your CI/CD, generate proofs faster, and boost security without needing deep cryptographic expertise. Build more reliable applications with less overhead.
+
+✅ **For Data Scientists:** Ensure verifiable data provenance and model integrity. Generate irrefutable proofs that your data hasn't been tampered with and that models perform as expected, boosting auditability and compliance.
+
+This release brings major leaps in #performance, #usability, and expanded applicability. It's about empowering you to build with greater confidence and push the boundaries of what's possible.
+
+Ready to dive into the details? Read all about it here:
+https://www.wolflergf.com/blog/touchstone-prover-0-3-20
+
+#VerifiableComputing #DataIntegrity #Developers #DataScience #TechUpdate #SoftwareDevelopment #Trust
