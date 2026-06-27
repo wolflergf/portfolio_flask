@@ -1,0 +1,17 @@
+---
+title: agent-skill-lint 0.2.0
+date: 2026-06-27
+source_url: https://pypi.org/project/agent-skill-lint/0.2.0/
+---
+
+I'm thrilled to introduce `agent-skill-lint 0.2.0`, a powerful new tool designed to bring robust quality assurance to your AI agent skill definitions. My aim with this release was to create the "eslint of the agent skill world" – a purely static analysis linter that operates entirely locally, with zero LLM calls and no cloud dependencies. This means you can catch bad skill definitions, stored in your `SKILL.md` files, *at development time*—before they even have a chance to impact your agent's behavior. It's fast, private, and ready to integrate into your existing workflows.
+
+For developers and data scientists building AI agents, this release fundamentally shifts how you ensure skill quality. Instead of discovering an agent misbehaves due to a malformed skill description or a missing frontmatter field, `agent-skill-lint` proactively flags these issues right in your editor or during your pre-commit checks. This translates directly into less time spent debugging obscure agent errors and more time building reliable, predictable AI applications. You'll gain confidence that your skills are consistently defined, free from ambiguity, and adhere to best practices, making agent development a much smoother and more efficient process.
+
+The practical benefits for your daily work are extensive. Beyond basic validation, `agent-skill-lint` offers a comprehensive suite of checks across various categories: from essential frontmatter fields (like missing `name` or `description`) to description quality (flagging vague words, inconsistent names, or descriptions that are too short/long). It even scrutinizes body structure, identifies broken markdown links, and importantly, enforces *cross-skill consistency*. This means it can detect issues like two skills claiming the same `modeSlugs` or descriptions with high token overlap, which can lead to ambiguous agent routing.
+
+I've also packed in several utility commands to enhance your workflow. You can easily `check` all your skills, use `score` to get an A-F quality grade, or `simulate` agent routing for a query *without* needing a live LLM or ML model. The tool is highly configurable, allowing you to override default rule parameters, ignore specific rules or entire directories, and extend built-in lists like vague words or mode slugs via a simple `.skill-lint.yaml` file. With pre-commit hook support and GitHub Actions-friendly output, `agent-skill-lint` is built for seamless integration into your CI/CD pipeline, automating your quality gates.
+
+In essence, `agent-skill-lint 0.2.0` is a crucial addition to any AI agent developer's toolkit. It empowers you to build more robust, reliable, and maintainable AI agents by ensuring the foundational quality of their skills. My key takeaway for you is this: by embracing static analysis for your skill definitions, you're not just preventing errors; you're actively cultivating a higher standard of agent development, enabling faster iteration and ultimately, more successful AI applications.
+
+[Read the full article here](https://pypi.org/project/agent-skill-lint/0.2.0/)

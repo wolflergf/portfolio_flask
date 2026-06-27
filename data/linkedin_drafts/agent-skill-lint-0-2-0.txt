@@ -1,0 +1,46 @@
+Here are a few options for a short, engaging LinkedIn post, pick the one that best fits your style!
+
+---
+
+**Option 1 (Concise & Punchy):**
+
+✨ Big news for #AIAgent developers! ✨
+
+Introducing `agent-skill-lint 0.2.0` – your new best friend for building robust AI agents! Think of it as the **ESLint for your agent skill world.** 🚀
+
+Catch malformed `SKILL.md` files *at development time* – completely locally, with zero LLM calls and no cloud dependencies. Less debugging, more reliable agents!
+
+Learn how to elevate your agent quality:
+🔗 [https://www.wolflergf.com/blog/agent-skill-lint-0-2-0](https://www.wolflergf.com/blog/agent-skill-lint-0-2-0)
+
+#AI #AgentDevelopment #LLMs #DevTools #StaticAnalysis #QualityAssurance
+
+---
+
+**Option 2 (Benefit-Focused):**
+
+Tired of obscure agent errors caused by subtle skill definition mistakes? 🤯
+
+I'm thrilled to launch `agent-skill-lint 0.2.0`, bringing robust quality assurance to your AI agent skill definitions! This purely static analysis linter operates entirely locally – catching issues *before* they impact your agent's behavior, with **zero LLM calls or cloud dependencies.**
+
+From frontmatter validation to critical cross-skill consistency checks (bye-bye ambiguous routing!), this tool will transform how you build reliable, predictable AI applications.
+
+Boost your agent development workflow:
+🔗 [https://www.wolflergf.com/blog/agent-skill-lint-0-2-0](https://www.wolflergf.com/blog/agent-skill-lint-0-2-0)
+
+#AIAgents #AI #SoftwareDevelopment #DevTools #QualityGates #Linting
+
+---
+
+**Option 3 (Direct & Enthusiastic):**
+
+Exciting release for anyone building #AIAgents! 🛠️ I'm incredibly proud to announce `agent-skill-lint 0.2.0`, aiming to be the "eslint of the agent skill world."
+
+This powerful tool empowers you to catch bad skill definitions in your `SKILL.md` files *at development time*. It's fast, private, and 100% local – no LLM calls, no cloud dependencies needed!
+
+Proactively flag issues, ensure cross-skill consistency, and even simulate agent routing *without* an LLM. Get an A-F quality grade for your skills and build with confidence!
+
+Dive into the details:
+🔗 [https://www.wolflergf.com/blog/agent-skill-lint-0-2-0](https://www.wolflergf.com/blog/agent-skill-lint-0-2-0)
+
+#AI #AgentDevelopment #LLMs #DeveloperTools #StaticAnalysis #TechLaunch
