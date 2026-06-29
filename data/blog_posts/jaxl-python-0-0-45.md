@@ -1,0 +1,15 @@
+---
+title: jaxl-python 0.0.45
+date: 2026-06-29
+source_url: https://pypi.org/project/jaxl-python/0.0.45/
+---
+
+I'm excited to share the release of `jaxl-python 0.0.45`, the official Python SDK and CLI that I've developed to interface with the powerful Jaxl API. My goal with this release was to provide developers and data scientists with a robust, Pythonic, and easy-to-use toolkit to manage a comprehensive range of communication features, from calls and messages to IVRs, devices, teams, payments, campaigns, and even sophisticated AI Agents. Built on OpenAPI, it offers both automatically generated API clients and user-friendly Pythonic wrappers, ensuring a smooth development experience right out of the box.
+
+For a developer, this release fundamentally changes how you can integrate and automate communication workflows. No longer are you tied to complex, disparate APIs or manual configurations; with `jaxl-python`, you can programmatically control every aspect of your communication infrastructure directly from your Python code. Whether you need to create and manage IVRs, place outgoing cellular calls with custom ad-hoc IVRs, set up multi-party conference calls, or dynamically add and remove participants from active conversations, all these capabilities are now accessible via intuitive Python methods or simple CLI commands. This empowers you to build highly customized, responsive, and automated communication applications with unprecedented ease.
+
+Where this release truly shines for data scientists and AI practitioners is in its advanced capabilities around real-time voice processing and AI integration. I've focused on enabling real-time streaming audio, speech segments, and transcriptions, offering a direct pipeline to feed live conversational data into your models. Furthermore, the built-in AI Agent functionality, which integrates Speech-to-Text (STT), Large Language Models (LLM) or Multi-Channel Processors (MCP), and Text-to-Speech (TTS), allows you to build sophisticated conversational AI solutions and perform real-time call analytics directly within the Jaxl ecosystem. This simplifies the development of intelligent voicebots, sentiment analysis, and dynamic, context-aware communication agents.
+
+The key takeaway is that `jaxl-python 0.0.45` is designed to be your go-to tool for bringing intelligence and automation to your communication infrastructure. It's a production-stable solution that provides a unified, programmatic interface for managing everything from basic call routing to advanced voice AI. My aim was to dramatically reduce the complexity of developing communication-centric applications, allowing you to focus on innovation rather than integration headaches. I encourage you to `pip install jaxl-python` and start exploring how it can transform your daily work, enabling you to build cutting-edge communication solutions faster and more efficiently.
+
+[Read the full article here](https://pypi.org/project/jaxl-python/0.0.45/)
