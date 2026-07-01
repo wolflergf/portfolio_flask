@@ -1,0 +1,20 @@
+Here's a draft for your LinkedIn post:
+
+---
+
+Ever wish you had X-ray vision for your AI workflows? 🕵️‍♂️ Debugging complex LLM applications and agent systems can feel like navigating in the dark.
+
+That's why I'm incredibly excited to share `flow-forge-ai-sdk` 0.1.2! ✨ My aim with this library is to bring unprecedented clarity and control to AI development.
+
+What does it do?
+*   **Automatic Instrumentation:** Seamlessly traces calls from popular libraries like OpenAI, LangChain, Ollama, httpx, and requests.
+*   **Workflow Visibility:** Transform opaque processes into transparent, traceable steps, revealing exact sequences of LLM interactions and tool uses.
+*   **Replay & Reproduce:** A game-changer for debugging and understanding model behavior without costly reruns.
+*   **Flexible Storage:** Direct trace events to SQLite, PostgreSQL, MongoDB, and more.
+
+Say goodbye to guesswork and hello to efficient debugging and robust AI systems. If you're serious about building sophisticated AI, this is for you.
+
+Dive into the details and see how `flow-forge-ai-sdk` can empower your next project:
+👉 https://www.wolflergf.com/blog/flow-forge-ai-sdk-0-1-2
+
+#AIdevelopment #LLM #AgentSystems #Debugging #Observability #Python #DataScience #SoftwareDevelopment
