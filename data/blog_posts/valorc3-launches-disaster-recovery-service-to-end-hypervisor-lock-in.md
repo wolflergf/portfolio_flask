@@ -1,0 +1,17 @@
+---
+title: ValorC3 Launches Disaster Recovery Service to End Hypervisor Lock-In
+date: 2026-07-03
+source_url: https://www.prnewswire.com/news-releases/valorc3-launches-disaster-recovery-service-to-end-hypervisor-lock-in-302816537.html
+---
+
+As the author of this announcement, I'm thrilled to share a significant leap forward in disaster recovery: ValorC3's new fully managed Disaster Recovery as a Service (DRaaS) solution. What truly sets this offering apart, and what I believe will profoundly impact the daily work of Developers and Data Scientists, is its ability to end hypervisor lock-in. We've moved past the old rule where your source and recovery environments needed to run the same hypervisor, meaning you can now fail over from VMware, Hyper-V, or OpenStack to a completely different platform. We protect the workload itself, not the underlying hypervisor, handing control back to you.
+
+For Developers, this means unprecedented freedom in choosing the optimal technology stack for your projects. No longer are your architectural decisions or future innovations constrained by disaster recovery compatibility. You can confidently select the best-fit hypervisor or cloud environment for development, testing, and deployment without worrying about being locked into a specific vendor for your DR strategy. This flexibility empowers you to experiment with new tools and platforms, knowing that your critical applications and services remain fully recoverable.
+
+Data Scientists, in particular, will benefit immensely from this liberation. Your complex data pipelines, machine learning models, and large datasets often demand specific, high-performance environments. With our DRaaS, you're free to leverage the most suitable infrastructure for your compute-intensive tasks, such as OpenStack for its flexibility or other platforms for specific tooling, without compromising on recovery. Furthermore, with recovery point objectives (RPO) near 15 minutes and near-zero replication for the most demanding workloads, we ensure minimal data loss and rapid recovery of your critical data and analytical applications, minimizing downtime that can derail crucial research or model training.
+
+Beyond the freedom from hypervisor lock-in, the practical benefits extend to operational simplicity and confidence. This service provides a single recovery target for diverse environments, eliminating the need for a patchwork of tools and simplifying the overall DR strategy. We co-manage the platform, running and monitoring it, while you retain control to test and run your own failovers through a self-service portal. This ensures your recovery plan is proven *before* a real event occurs, giving you peace of mind that your applications, data, and models are always recoverable.
+
+In essence, our new DRaaS empowers Developers and Data Scientists to focus on innovation and data insights, rather than being bogged down by infrastructure resilience complexities. The key takeaway is clear: true infrastructure independence for disaster recovery is here. You gain the flexibility to build, iterate, and deploy on the platforms best suited for your ambitions, with the unwavering confidence that your work is protected, recoverable, and accessible, regardless of the underlying hypervisor.
+
+[Read the full article here](https://www.prnewswire.com/news-releases/valorc3-launches-disaster-recovery-service-to-end-hypervisor-lock-in-302816537.html)
