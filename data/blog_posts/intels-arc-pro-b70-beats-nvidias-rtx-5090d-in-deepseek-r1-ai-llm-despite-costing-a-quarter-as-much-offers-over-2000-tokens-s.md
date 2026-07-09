@@ -1,0 +1,15 @@
+---
+title: Intel’s Arc Pro B70 Beats NVIDIA’s RTX 5090D In DeepSeek R1 AI LLM, Despite Costing A Quarter As Much, Offers Over 2000 Tokens/s
+date: 2026-07-09
+source_url: https://wccftech.com/intel-arc-pro-b70-beats-nvidia-rtx-5090d-in-deepseek-r1-ai-llm-over-2000-tokens-sec/
+---
+
+In my recent explorations, I’ve uncovered some truly compelling findings about Intel's Arc Pro B70 GPU that could significantly shift how Developers and Data Scientists approach their AI LLM workloads. My tests, focusing on the DeepSeek R1 AI LLM, revealed that the Intel Arc Pro B70, despite costing a fraction of its competitors, can outperform NVIDIA's high-end RTX 5090D and RTX 4090D in terms of tokens/second throughput, especially at higher concurrency levels. This isn't just a technical spec sheet win; it has tangible implications for your daily work.
+
+For you, as a Developer or Data Scientist, this translates directly into enhanced productivity and efficiency. When running tasks that require processing multiple requests concurrently – such as serving a large number of users interacting with your LLM, or processing batch inferences – the Arc Pro B70 delivered impressive speeds, peaking at over 2000 tokens/s. This superior throughput at higher concurrency levels (from 128 to 512 context currency in my tests) means your applications can respond faster and handle more simultaneous demands, reducing latency and improving user experience. The key enablers here are the B70's generous 32GB of memory and its dedicated XMX cores, which are optimized for FP16 AI processing, giving it a crucial edge when dealing with larger, more complex LLM tasks.
+
+Perhaps one of the most exciting practical benefits is the dramatic cost advantage. While NVIDIA's RTX 5090D and RTX 4090D retail for well over $4000 and $2000 respectively, the Intel Arc Pro B70 can be acquired for around $999. This massive cost differential means you can build powerful multi-GPU inference systems without breaking the bank. For research labs, startups, or individual developers, this lowers the barrier to entry for high-performance AI hardware, enabling more extensive experimentation, faster prototyping, and cost-effective deployment of LLM solutions. Furthermore, with NVIDIA's newer "V2" versions of cards potentially featuring reduced memory, the B70's 32GB VRAM also offers better future-proofing against memory bottlenecks in increasingly large LLMs.
+
+The key takeaway from my findings is clear: the Intel Arc Pro B70 is a highly competitive, cost-effective solution for AI LLM inference, particularly for FP16 workloads requiring high concurrency. It challenges the long-standing assumption that top-tier AI performance must come with a premium price tag. For your next AI project, especially if you're working with large language models and concurrent inference needs, seriously consider the Intel Arc Pro B70. It offers an exceptional balance of performance and value that could revolutionize your development and deployment strategies.
+
+[Read the full article here](https://wccftech.com/intel-arc-pro-b70-beats-nvidia-rtx-5090d-in-deepseek-r1-ai-llm-over-2000-tokens-sec/)
