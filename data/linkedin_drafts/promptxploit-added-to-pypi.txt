@@ -1,0 +1,22 @@
+Here's a draft for your LinkedIn post:
+
+---
+
+Thrilled to share a game-changer for LLM security! ✨ My new open-source project, **`promptxploit`**, is now live on PyPI!
+
+As LLMs become central to our applications, securing them against prompt injection & jailbreak attacks is *critical*. Manual testing is tedious, inconsistent, and leaves us exposed.
+
+`promptxploit` provides an automated, robust framework for LLM penetration testing, transforming how you approach security.
+
+**Key features you'll love:**
+*   ⚡️ **Automated & Proactive:** Discover weaknesses efficiently, before they become incidents.
+*   🔒 **Local-First Judging:** Crucially, sensitive model responses *never leave your machine*.
+*   📊 **Actionable Reports:** Get clear JSON outputs with per-attack verdicts, risk scores, and rationales.
+*   🚀 **Efficient & Flexible:** Point it at any model or HTTP endpoint, with comprehensive coverage and minimal false positives.
+
+It's time to move beyond reactive fixes. Empower your teams to build more secure, trustworthy LLM applications by integrating systematic adversarial testing into your development and CI/CD pipelines.
+
+Ready to harden your LLM applications? Get all the details and explore `promptxploit` on the blog:
+👉 [https://www.wolflergf.com/blog/promptxploit-added-to-pypi](https://www.wolflergf.com/blog/promptxploit-added-to-pypi)
+
+#LLMSecurity #PromptEngineering #OpenSource #Python #AISecurity #Cybersecurity #Developers #DataScience #LLM #AI
