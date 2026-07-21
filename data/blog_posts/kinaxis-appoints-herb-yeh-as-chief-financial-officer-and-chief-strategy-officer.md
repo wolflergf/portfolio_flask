@@ -1,0 +1,15 @@
+---
+title: Kinaxis Appoints Herb Yeh as Chief Financial Officer and Chief Strategy Officer
+date: 2026-07-21
+source_url: https://financialpost.com/pmn/business-wire-news-releases-pmn/kinaxis-appoints-herb-yeh-as-chief-financial-officer-and-chief-strategy-officer
+---
+
+In my recent article, I covered a significant strategic move for Kinaxis: the appointment of Herb Yeh as our new Chief Financial Officer and Chief Strategy Officer, effective July 27, 2026. This isn't just a typical executive hire; Yeh brings over 25 years of experience in corporate finance, working specifically with enterprise software companies through critical phases of growth, M&A, and strategic transformation. His background, including leadership roles at Evercore and Citi, positions him perfectly to guide Kinaxis as we embark on our next phase of innovation and global scaling.
+
+For developers and data scientists, this appointment signals an exciting and accelerated future. Yeh's mandate includes overseeing corporate strategy and capital allocation, with a clear focus on "accelerating innovation." As he noted himself, the supply chain planning market is undergoing a significant transformation driven by AI, and Kinaxis is "exceptionally well positioned to lead that transformation." This translates directly into more opportunities and strategic investment in our AI-infused Maestro platform, pushing us to build even more sophisticated models, enhance our data pipelines, and develop cutting-edge features that leverage artificial intelligence to solve complex supply chain challenges.
+
+Practically, Yeh’s expertise in strategic finance and disciplined execution means that our R&D and product development initiatives are likely to receive targeted, well-considered investments. We can anticipate resources being deployed to enhance our technical infrastructure, acquire advanced tools, and potentially expand our teams to tackle ambitious projects. His focus on creating long-term value for customers and shareholders underscores a commitment to product excellence and impactful feature delivery, driven by the innovations our technical teams bring to life.
+
+My key takeaway from this appointment is that Kinaxis is firmly doubling down on its commitment to leadership in the AI-driven supply chain space. Bringing in a strategic leader of Herb Yeh's caliber ensures that our ambitious innovation goals are not only well-funded but also guided by a clear, disciplined strategy. For those of us building the future of supply chain planning, this means a vibrant environment with enhanced opportunities to contribute to groundbreaking work, directly shaping how enterprises make their most complex decisions with AI.
+
+[Read the full article here](https://financialpost.com/pmn/business-wire-news-releases-pmn/kinaxis-appoints-herb-yeh-as-chief-financial-officer-and-chief-strategy-officer)

@@ -1,0 +1,77 @@
+Here are a few options, choose the one that best fits your personal style!
+
+---
+
+**Option 1 (Concise & Benefit-Driven):**
+
+Thrilled to announce that `corebasehq` is officially live on PyPI! 🎉
+
+This is a game-changer for developers and data scientists looking to integrate powerful AI with their *proprietary data*.
+
+The best part? Our Python SDK offers an **OpenAI-compatible interface**. That means you can leverage your existing OpenAI skills to:
+*   Chat over your connected data
+*   Manage data sources
+*   Trigger agent runs
+*   Secure widget sessions
+
+Build sophisticated, data-aware applications with ease and familiarity.
+Ready to get started? `pip install corebasehq`
+
+Learn more about `corebasehq` and its robust features here:
+➡️ [https://www.wolflergf.com/blog/corebasehq-added-to-pypi](https://www.wolflergf.com/blog/corebasehq-added-to-pypi)
+
+#Python #AI #MachineLearning #Developers #DataScience #SDK #GenerativeAI #PyPI
+
+---
+
+**Option 2 (Slightly More Detail & Enthusiastic):**
+
+Big news for developers and data scientists! I'm incredibly excited to share that `corebasehq` is now available on PyPI! 🚀
+
+This official Python SDK for the CoreBase Developer API is designed to make integrating advanced AI capabilities with your *proprietary data* incredibly straightforward.
+
+What makes it special?
+💡 **OpenAI-Compatible Interface:** Point your existing OpenAI clients to our API and start chatting over your own data. Reduce your learning curve and maximize your current tools!
+🧠 **Comprehensive Features:** Manage data sources, execute governed agent runs for automation, and securely embed CoreBase functionality into your UIs.
+🔧 **Developer-Friendly:** Easy installation (`pip`, `uv`, `poetry`), sync/async examples, robust error handling, and strong authentication.
+
+My goal with `corebasehq` is to empower you to build secure, scalable, and intelligent applications with your unique datasets.
+
+Dive in and explore how you can transform your connected data today:
+🔗 [https://www.wolflergf.com/blog/corebasehq-added-to-pypi](https://www.wolflergf.com/blog/corebasehq-added-to-pypi)
+
+#PythonDevelopers #AIIntegration #DataScience #GenerativeAI #SDKRelease #Innovation
+
+---
+
+**Option 3 (Short & Punchy):**
+
+Exciting news! `corebasehq` is officially live on PyPI! 🎉
+
+Developers & Data Scientists, meet your new favorite Python SDK for integrating AI with *your* proprietary data.
+
+The biggest benefit? An **OpenAI-compatible interface** for:
+*   Chatting over your data
+*   Managing sources
+*   Automating with agents
+*   Securing UI widgets
+
+Build smart, data-aware apps with ease. `pip install corebasehq` and start building!
+
+Full details and how to get started:
+👉 [https://www.wolflergf.com/blog/corebasehq-added-to-pypi](https://www.wolflergf.com/blog/corebasehq-added-to-pypi)
+
+#Python #AI #Developers #DataScientists #NewRelease #CoreBaseHQ
+
+---
+
+**Key elements used in all options:**
+*   **Hook:** Starts with exciting news.
+*   **Target Audience:** Clearly stated (developers, data scientists).
+*   **Core Problem/Solution:** Integrating AI with proprietary data.
+*   **Key Differentiator:** OpenAI-compatible interface (highlighted strongly).
+*   **Key Features/Benefits:** Bulleted or listed for readability.
+*   **Call to Action:** "Learn more," "Dive in," "Install."
+*   **Link:** Prominently displayed.
+*   **Emojis:** Add visual appeal.
+*   **Hashtags:** Increase visibility.
