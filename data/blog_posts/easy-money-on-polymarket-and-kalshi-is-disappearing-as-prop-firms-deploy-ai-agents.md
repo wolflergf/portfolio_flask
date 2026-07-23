@@ -1,0 +1,15 @@
+---
+title: Easy money on Polymarket and Kalshi is disappearing as prop firms deploy AI agents
+date: 2026-07-23
+source_url: https://cryptoslate.com/easy-money-on-polymarket-and-kalshi-is-disappearing-as-prop-firms-deploy-ai-agents/
+---
+
+In my recent article, I explored the rapidly evolving landscape of prediction markets like Kalshi and Polymarket, noting a significant shift: the era of "easy money" for retail traders is quickly disappearing. These markets are now seeing a massive influx of institutional capital, prop trading firms, and, critically, sophisticated AI agents. This professionalization is transforming how events, from Fed rate decisions to regulatory outcomes, are priced, making these markets far more efficient but also intensely competitive.
+
+For a Developer or Data Scientist, this presents a fascinating, albeit challenging, new frontier. My research highlights that while early AI models have struggled to consistently generate profit—even losing significant capital in some benchmarks—the structured nature of prediction markets makes them an ideal laboratory for testing AI. Each contract has a fixed structure, an observable price, and a clear resolution rule, providing a clean environment to train and deploy machine learning models. The core challenge for developers is not just building accurate predictive models, but designing AI agents that can translate forecasts into *profitable* trading strategies, accounting for factors like execution costs, slippage, and optimal betting strategies.
+
+Despite these hurdles, the practical benefits for those building in this space are substantial. Firms like Propr are actively using prediction markets to identify and fund skilled traders and AI agents, offering accounts based on rigorous evaluation metrics. My article details how these firms assess skill through "probability calibration," "performance after fees," "drawdown control," and the need for a large sample size of resolved predictions to statistically validate an edge. This provides a clear, measurable framework for Data Scientists to demonstrate the efficacy of their algorithms and potentially secure significant capital for live trading.
+
+The key takeaway is clear: the future of these prediction markets belongs to sophisticated algorithmic trading. Success will hinge on building adaptive AI agents capable of continuous repricing, deep data analysis (requiring hundreds of resolved predictions to confirm a true edge), and robust execution strategies in real-time. The edge will undoubtedly concentrate among firms with the fastest infrastructure and most advanced models. For Developers and Data Scientists looking to make an impact in financial markets, this transition offers a demanding but incredibly rewarding opportunity to develop and validate truly intelligent trading systems.
+
+[Read the full article here](https://cryptoslate.com/easy-money-on-polymarket-and-kalshi-is-disappearing-as-prop-firms-deploy-ai-agents/)
